@@ -1,0 +1,17 @@
+.container_reactions{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.container_reactions p{
+    color: #666666;
+    font-weight: 300;
+}
+
+.container_reactions button{
+    border: none;
+    color: red;
+    background-color: #ffffff;
+}

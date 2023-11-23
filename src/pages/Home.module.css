@@ -1,0 +1,29 @@
+.container{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 70px;
+}
+
+.home{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.left_section{
+    width: 22.5%;
+}
+
+.center_section{
+    width: 50%;
+}
+
+.rigth_section{
+    width: 22.5%;
+}
+
+@media screen and (max-width : 720px){
+    .container{
+        width: 95%;
+    }
+}

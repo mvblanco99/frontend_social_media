@@ -1,0 +1,31 @@
+.main_post{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.text_post{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.text_post p{
+    text-align: justify;
+}
+
+.container_img_post{
+    width: 100%;
+    min-height: 300px;
+    height: 300px;
+    border-radius: 5px;
+    
+}
+
+.main_post .container_img_post .img_post{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    
+}

@@ -1,0 +1,92 @@
+/* Dispositivos mobiles */
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container_form_register_new_user{
+    width: 90%;
+    margin-top: 30px;
+    background-color: #ffffff;
+    border-radius: 5px ;
+}
+
+.container_form_register_new_user h1{
+    text-align: center;
+    padding-top: 15px;
+}
+
+.form_register_new_user{
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.label{
+    border: none;
+}
+
+.input{
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px solid #d2d2d2;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.submit{
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px solid #d2d2d2;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    background-color: #dd4633;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.container_link{
+    margin-top: 10px;
+    width: 90%;
+}
+
+.container_link a{
+    color: black;
+}
+
+.container_link a:hover{
+    color: #dd4633;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+@media screen and (min-width:768px){
+    .container{
+        width: 100%;
+        margin-top: 50px;
+    }
+
+    .container_form_register_new_user{
+        width: 60%;
+    }
+
+    .container_link{
+        width: 60%;
+    }
+}
+
+@media screen and (min-width:1024px){
+
+    .container_form_register_new_user{
+        width: 30%;
+    }
+    .container_link{
+        width: 30%;
+    }
+}
+
+

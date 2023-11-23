@@ -1,0 +1,40 @@
+.header_post{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container_img{
+    min-width: 40px;
+    width: 40px;
+    height: 40px;
+}
+
+.img {
+    width: 100%;
+    height: auto;
+    border: 50%;
+    object-fit: cover;
+}
+
+.time_title{
+    width: calc(100% - 50px);
+}
+
+.time_title p, .time_title a {
+    font-size: 1em;
+    margin-top: 5px;
+    text-decoration: none;
+    color: black;
+}
+
+.time_title a{
+    font-weight: 500;
+}
+
+.time_title a:hover{
+    text-decoration: underline;
+    color: #dd4633;
+}
