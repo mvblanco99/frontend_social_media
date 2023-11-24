@@ -2,13 +2,13 @@ import Cookies from "js-cookie";
 import { jwtDecode } from "jwt-decode";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { addUser } from "../Slices/usersSlice";
-
 
 const useVerifySesion = () => {
 
     const dispatch = useDispatch();
+    const navigate = useNavigate()
     
     useEffect(()=>{
 
@@ -18,7 +18,7 @@ const useVerifySesion = () => {
         //Verificar que la sesion este activa
         if( token === undefined){
           //si no lo esta, se redirige al login
-          Navigate('/')
+          navigate('/')
           return
         }
     
@@ -26,9 +26,8 @@ const useVerifySesion = () => {
         const encoded = jwtDecode(token);
         //si lo esta : Carga los datos en la store
         dispatch(addUser(encoded.data_user))
-    
+        
     },[])
-
 }
 
 export default useVerifySesion

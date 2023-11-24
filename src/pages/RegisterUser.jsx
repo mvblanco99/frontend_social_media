@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom'
 import stylesRegisterUser from './RegisterUser.module.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import useRegister from '../hooks/useRegister'
 
 const initialState = {
@@ -15,14 +15,12 @@ const URL_API = 'http://localhost/api/?categoria=users&accion=add_user'
 const RegisterUser = () => {
 
     const [dataUser, setDataUser] = useState(initialState)
-    const { username, password, name, lastname } = dataUser
-
-    const { data, error, loading, fetchApi } = useRegister()
-
+    const [is_registered, setIsRegistered] = useState(false);
     const navigate = useNavigate()
     
-    console.log('me renderixo')
-    
+    const { username, password, name, lastname } = dataUser
+    const { data, loading, error, fetchApi } = useRegister()
+
     const onHandleChangeDataUser = (e) => {
         setDataUser({
             ...dataUser,
@@ -32,21 +30,16 @@ const RegisterUser = () => {
 
     const onSubmit = async (e) => {
         e.preventDefault()
+        console.log(dataUser)
         await fetchApi({dataUser,URL_API});  
     }
 
-    if(loading){
-        console.log('esta cargando')
-    }
+    if(loading)console.log('cargando')
+    if(error) console.log('error')
 
-    if(error){
-        console.log('Hubo un error')
-    }
-
-    if(data == 1){
-        navigate('/')
-    }
-
+    useEffect(()=>{ if(data.success === 1) setIsRegistered(true) },[data])
+    useEffect(()=>{ if(is_registered) navigate('/') },[is_registered])
+    
   return (
      <>
         <div className={stylesRegisterUser.container}>
