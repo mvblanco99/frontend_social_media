@@ -45,7 +45,7 @@ const postsSlice = createSlice({
             state.posts.push(...action.payload.success)
         })
         .addCase(addNewPost.fulfilled, (state, action) => {
-            state.posts = [...state.posts, action.payload]
+            state.posts = [...state.posts, action.payload.success]
         })
         .addCase(addNewPost.rejected,(state,action) =>{
             console.log(action.payload)

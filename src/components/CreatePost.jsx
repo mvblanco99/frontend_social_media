@@ -1,12 +1,13 @@
 import { useState } from "react";
 import stylesCreatePost from "./CreatePost.module.css"
 // import { addNewPost } from "../Slices/postsSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addNewPost } from "../Slices/postsSlice";
 
 const CreatePost = () => {
 
     const dispatch = useDispatch();
+    const userId = useSelector(state => state.users.user.id);
 
     const [content, setContent] = useState('');
     const onHandlechange = e => setContent(e.target.value)
@@ -15,7 +16,7 @@ const CreatePost = () => {
         e.preventDefault();
 
         const body = {
-            user_id : 1,
+            user_id : userId,
             content,
             img: ''
         }
