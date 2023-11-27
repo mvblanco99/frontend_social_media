@@ -24,6 +24,7 @@ const useVerifySesion = () => {
     
         //decodifico el token
         const encoded = jwtDecode(token);
+        console.log(encoded.data_user)
         //si lo esta : Carga los datos en la store
         dispatch(addUser(encoded.data_user))
         
