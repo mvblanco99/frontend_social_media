@@ -2,6 +2,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import stylesPosteos from './Posteos.module.css'
 
 const Posteos = ({ title, text, url, buttonEnabled}) => {
+
   return (
     <>
         <li className={ buttonEnabled ? stylesPosteos.container : stylesPosteos.container2}>

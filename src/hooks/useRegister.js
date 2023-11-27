@@ -4,7 +4,7 @@ const useRegister = () => {
     
     const [loading, setLoading] = useState(false)
     const [error,setError] = useState(false)
-    const [data,setData] = useState(null)
+    const [data,setData] = useState(0)
 
     const fetchApi = async ({dataUser,URL_API}) => {
 
