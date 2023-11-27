@@ -86,11 +86,11 @@
 @media screen and (min-width:1024px){
     
     .container_form_register_new_user{
-        width: 40%;
+        width: 50%;
     }
 
     .container_link{
-        width: 40%;
+        width: 50%;
     }
 }
 

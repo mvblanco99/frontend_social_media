@@ -40,78 +40,78 @@ const RegisterUser = () => {
     useEffect(()=>{ if(data.success === 1) setIsRegistered(true) },[data])
     useEffect(()=>{ if(is_registered) navigate('/') },[is_registered])
     
-  return (
-     <>
-        <div className={stylesRegisterUser.container}>
-            <div className={stylesRegisterUser.container_form_register_new_user}>
-                <h1>Register User</h1>
-                <form className={stylesRegisterUser.form_register_new_user} onSubmit={onSubmit}>
-                    <label 
-                        htmlFor="username"
-                        className={stylesRegisterUser.label}>
-                        <input 
-                            type="text" 
-                            name="username" 
-                            id="username" 
-                            placeholder='Username'
-                            className={stylesRegisterUser.input}
-                            value={username}
-                            onChange={onHandleChangeDataUser}
+    return (
+        <>
+            <div className={stylesRegisterUser.container}>
+                <div className={stylesRegisterUser.container_form_register_new_user}>
+                    <h1>Register User</h1>
+                    <form className={stylesRegisterUser.form_register_new_user} onSubmit={onSubmit}>
+                        <label 
+                            htmlFor="username"
+                            className={stylesRegisterUser.label}>
+                            <input 
+                                type="text" 
+                                name="username" 
+                                id="username" 
+                                placeholder='Username'
+                                className={stylesRegisterUser.input}
+                                value={username}
+                                onChange={onHandleChangeDataUser}
+                                />
+                        </label>
+                        <label 
+                            htmlFor="password"
+                            className={stylesRegisterUser.label}>
+                            <input 
+                                type="password" 
+                                name="password" 
+                                id="password" 
+                                placeholder='Password'
+                                className={stylesRegisterUser.input}
+                                value={password}
+                                onChange={onHandleChangeDataUser}
                             />
-                    </label>
-                    <label 
-                        htmlFor="password"
-                        className={stylesRegisterUser.label}>
-                        <input 
-                            type="password" 
-                            name="password" 
-                            id="password" 
-                            placeholder='Password'
-                            className={stylesRegisterUser.input}
-                            value={password}
-                            onChange={onHandleChangeDataUser}
-                        />
-                    </label>
-                    <label
-                        htmlFor="name"
-                        className={stylesRegisterUser.label}>
-                        <input 
-                            type="text" 
-                            name="name" 
-                            id="name" 
-                            placeholder='Name'
-                            className={stylesRegisterUser.input}
-                            value={name}
-                            onChange={onHandleChangeDataUser}    
-                        />
-                    </label>
-                    <label 
-                        htmlFor="lastName"
-                        className={stylesRegisterUser.label}>
-                        <input 
-                            type="text" 
-                            name="lastname" 
-                            id="lastname" 
-                            placeholder='Last Name'
-                            className={stylesRegisterUser.input}
-                            value={lastname}
-                            onChange={onHandleChangeDataUser}    
-                        />
-                    </label>
+                        </label>
+                        <label
+                            htmlFor="name"
+                            className={stylesRegisterUser.label}>
+                            <input 
+                                type="text" 
+                                name="name" 
+                                id="name" 
+                                placeholder='Name'
+                                className={stylesRegisterUser.input}
+                                value={name}
+                                onChange={onHandleChangeDataUser}    
+                            />
+                        </label>
+                        <label 
+                            htmlFor="lastName"
+                            className={stylesRegisterUser.label}>
+                            <input 
+                                type="text" 
+                                name="lastname" 
+                                id="lastname" 
+                                placeholder='Last Name'
+                                className={stylesRegisterUser.input}
+                                value={lastname}
+                                onChange={onHandleChangeDataUser}    
+                            />
+                        </label>
 
-                    <input 
-                        type="submit" 
-                        value="Save"
-                        className={stylesRegisterUser.submit} 
-                    />
-                </form>
+                        <input 
+                            type="submit" 
+                            value="Save"
+                            className={stylesRegisterUser.submit} 
+                        />
+                    </form>
+                </div>
+                <div className={stylesRegisterUser.container_link}><Link to='/'>Log in</Link></div>
+
             </div>
-            <div className={stylesRegisterUser.container_link}><Link to='/'>Log in</Link></div>
-
-        </div>
-        
-     </>
-  )
+            
+        </>
+    )
 }
 
 export default RegisterUser

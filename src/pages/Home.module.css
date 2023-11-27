@@ -1,3 +1,10 @@
+/* dispositivos 480px */
+
+
+
+/* 720px */
+
+
 .container{
     width: 80%;
     margin: 0 auto;
@@ -22,8 +29,3 @@
     width: 22.5%;
 }
 
-@media screen and (max-width : 720px){
-    .container{
-        width: 95%;
-    }
-}

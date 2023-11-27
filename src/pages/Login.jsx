@@ -3,6 +3,7 @@ import stylesLogin from './Login.module.css'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import { fetchUser } from '../Slices/usersSlice'
+import useVerifySesion from '../hooks/useVerifySesion'
 
 const initialState = {
     username : '',
@@ -18,6 +19,8 @@ const Login = () => {
 
     const dispacth = useDispatch()
     const navigate = useNavigate()
+
+    useVerifySesion();
 
     const { username, password } = dataUser
 

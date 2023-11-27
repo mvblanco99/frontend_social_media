@@ -23,3 +23,9 @@
 Conclusión
 Este desafío es más complejo y permite al desarrollador junior explorar conceptos avanzados de manejo de estado global, manejo de rutas, interacción con API, y la creación de una interfaz de usuario interactiva. El objetivo es desarrollar una aplicación tipo red social, que incluya varias funcionalidades y la gestión de múltiples componentes interconectados.
 
+# La aplicacion debe tener un componente que permita mostrar notificaciones recientes
+    * El componente tiene que mostrar una cantidad limitada de notificaciones(5)
+    * Cada notificacion tiene que mostrar la foto del usuario que realizo la publicacion, nombre del usuario, un fragmento del texto de la publicacion (En caso de tenerlo, Caso contrario, debe tener un mensaje, 'Nombre del usuario' ha realizado una publicacion), y una marca del tiempo que ha pasado desde que se ha realizado la publicacion.
+    * Al hacer clic en la notificacion, debe redirigir a una seccion donde se pueda visualizar el contenido de la publicacion
+    * Al abrir la notificacion esta debe cambiar su estado a 'leida'
+
