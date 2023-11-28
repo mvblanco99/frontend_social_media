@@ -24,8 +24,8 @@ const Post = () => {
   if(postStatus === 'loading'){
     renderedPosts = <Loader/>
   }else if(postStatus === 'succeeded'){
-    renderedPosts = posts.posts.map( post => (
-      <li className={stylesPost.post} key={post.id}>
+    renderedPosts = posts.posts.map( (post,index) => (
+      <li className={stylesPost.post} key={index}>
         <HeaderPost 
           name_user={`${post.name_user} ${post.lastname_user}`} 
           img_user={post.img_user}
