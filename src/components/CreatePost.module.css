@@ -73,3 +73,15 @@ img{
 .button:hover{
     background-color: #666666;
 }
+
+
+@media screen and (max-width : 520px){
+    .button{
+        width: 25%;
+        border-radius: 20px;
+        padding: 4px;
+        background-color: #dd4633;
+        color: #ffffff;
+        border: none;
+    }
+}
