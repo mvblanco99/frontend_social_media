@@ -207,6 +207,7 @@
         padding-left: 5%;
         gap: 20px;
         justify-content: flex-start;
+        position: relative;
     }
 
     .container_icons a{
@@ -223,6 +224,10 @@
         width: 25%;
         display: flex;
         align-items: center;
+
+        position: absolute;
+        right: 0;    
+        padding-right: 5px;
     }
     
     .form label{
@@ -245,6 +250,7 @@
     }
     
     .input_text{
+        display: block;
         width: 85%;
         padding: 0;
         border: none;
@@ -286,6 +292,7 @@
     .container_icons{
         width: calc(90% - 45px);
         padding-left: 10%;
+        position: relative;
     }
 
     .container_button_session{
@@ -294,5 +301,10 @@
         display: flex;
         justify-content: flex-start;
     }
+
+    .container_icons{
+        position: relative;
+    }
+
 }
 
