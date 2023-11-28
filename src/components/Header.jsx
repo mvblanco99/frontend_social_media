@@ -17,7 +17,6 @@ const Header = () => {
   const { img, name, lastname } = userState.user
 
   const [open, setOpen] = useState(false);
-
   const menuClassNames = ['Dropdown_menu', open?'active':'inactive'].map(c => stylesHeader[c]).join(' ');
 
   return (
