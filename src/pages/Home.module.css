@@ -1,31 +1,75 @@
-/* dispositivos 480px */
-
-
-
-/* 720px */
-
-
-.container{
-    width: 80%;
-    margin: 0 auto;
-    margin-top: 70px;
-}
-
+/* Dispositivos moviles */
 .home{
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
-.left_section{
-    width: 22.5%;
-}
-
 .center_section{
-    width: 50%;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 85px;
 }
 
-.rigth_section{
-    width: 22.5%;
+.left_section, .rigth_section{
+    display: none;
 }
+
+@media screen and (min-width : 540px){
+    .center_section{
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (min-width : 820px){
+    .container{
+        width: 95%;
+        margin: 0 auto;
+    }
+    
+    .center_section{
+        width:65%;
+    }
+    
+    .rigth_section{
+        display: block;
+        width: 30%;
+    }
+}
+
+@media screen and (min-width : 1024px){
+    
+    .container{
+        width: 90%;
+        margin: 0 auto;
+        border: 2px solid blue;
+        margin-top: 85px;
+    }
+    
+    .left_section{
+        display: block;
+        width: 25%;
+    }
+    
+    .center_section{
+        width:45%;
+    }
+    
+    .rigth_section{
+        display: block;
+        width: 25%;
+    }
+}
+
+@media screen and (min-width : 1280px){
+
+    .container{
+        width: 80%;
+        margin: 0 auto;
+        border: 2px solid red;
+        margin-top: 85px;
+    }
+}
+
 
