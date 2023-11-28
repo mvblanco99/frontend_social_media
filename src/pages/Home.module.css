@@ -5,10 +5,15 @@
     justify-content: space-between;
 }
 
+.container{
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 75px;
+}
+
 .center_section{
     width: 90%;
     margin: 0 auto;
-    margin-top: 85px;
 }
 
 .left_section, .rigth_section{
@@ -18,14 +23,12 @@
 @media screen and (min-width : 540px){
     .center_section{
         width: 80%;
-        margin: 0 auto;
     }
 }
 
 @media screen and (min-width : 820px){
     .container{
-        width: 95%;
-        margin: 0 auto;
+        width: 100%;
     }
     
     .center_section{
@@ -42,9 +45,6 @@
     
     .container{
         width: 90%;
-        margin: 0 auto;
-        border: 2px solid blue;
-        margin-top: 85px;
     }
     
     .left_section{
@@ -66,9 +66,6 @@
 
     .container{
         width: 80%;
-        margin: 0 auto;
-        border: 2px solid red;
-        margin-top: 85px;
     }
 }
 

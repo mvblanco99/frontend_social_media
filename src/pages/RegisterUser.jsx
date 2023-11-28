@@ -34,8 +34,10 @@ const RegisterUser = () => {
         await fetchApi({dataUser,URL_API});  
     }
 
+
     if(loading)console.log('cargando')
     if(error) console.log('error')
+    console.log(data)
 
     useEffect(()=>{ if(data.success === 1) setIsRegistered(true) },[data])
     useEffect(()=>{ if(is_registered) navigate('/') },[is_registered, navigate])
