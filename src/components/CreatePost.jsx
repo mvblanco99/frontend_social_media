@@ -4,8 +4,6 @@ import stylesCreatePost from "./CreatePost.module.css"
 import { useDispatch, useSelector } from "react-redux";
 import { addNewPost } from "../Slices/postsSlice";
 
-const PREFIX_IMAGE = "http://localhost/api/src/";
-
 const CreatePost = () => {
 
     const dispatch = useDispatch();
@@ -33,7 +31,7 @@ const CreatePost = () => {
         <div className={stylesCreatePost.create_post}>
             <div className={stylesCreatePost.container}>
                 <a className={stylesCreatePost.container_img} href="#">
-                    <img src={`${PREFIX_IMAGE}${img} `} alt={`${name} ${lastname}`} />
+                    <img src={img} alt={`${name} ${lastname}`} />
                 </a>
                 <div className={stylesCreatePost.container_form}>
                     <form className={stylesCreatePost.form} onSubmit={onSubmit}>

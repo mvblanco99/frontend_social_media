@@ -7,8 +7,6 @@ import { useEffect } from "react"
 import { fetchPosts } from "../Slices/postsSlice"
 import Loader from "./Loader"
 
-const PREFIX_IMAGE = "http://localhost/api/src/";
-
 const Post = () => {
 
   const dispatch = useDispatch();
@@ -62,7 +60,7 @@ const Post = () => {
       <li className={stylesPost.post} key={index}>
         <HeaderPost 
           name_user={`${post.name_user} ${post.lastname_user}`} 
-          img_user={`${PREFIX_IMAGE}${post.img_user}`}
+          img_user={post.img_user}
           creation_date={calcularTiempoTranscurrido(post.creation_date)}
           modification_date={post.modification_date}
         />

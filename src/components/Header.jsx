@@ -10,8 +10,6 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useState } from 'react';
 
 
-const PREFIX_IMAGE = "http://localhost/api/src/";
-
 const Header = () => {
 
   const userState = useSelector(state => state.users)
@@ -72,7 +70,7 @@ const Header = () => {
 
         <div className={stylesHeader.container_button_session}>
           <div className={stylesHeader.button_session} onClick={()=>{setOpen(!open)}}>
-          <img src={`${PREFIX_IMAGE}${img}`} alt={`${name} ${lastname}`}/>
+          <img src={img} alt={`${name} ${lastname}`}/>
 
           </div>
           
