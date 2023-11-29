@@ -30,10 +30,8 @@ const RegisterUser = () => {
 
     const onSubmit = async (e) => {
         e.preventDefault()
-        console.log(dataUser)
         await fetchApi({dataUser,URL_API});  
     }
-
 
     if(loading)console.log('cargando')
     if(error) console.log('error')

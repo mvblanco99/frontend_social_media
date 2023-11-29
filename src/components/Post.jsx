@@ -7,6 +7,8 @@ import { useEffect } from "react"
 import { fetchPosts } from "../Slices/postsSlice"
 import Loader from "./Loader"
 
+const PREFIX_IMAGE = "http://localhost/api/src/";
+
 const Post = () => {
 
   const dispatch = useDispatch();
@@ -19,17 +21,49 @@ const Post = () => {
     }
   },[postStatus])
 
+  function calcularTiempoTranscurrido(fecha) {
+    
+    const fechaActual = new Date();
+    const fechaPost = new Date(fecha);
+    const tiempoTranscurrido = fechaActual - fechaPost;
+  
+    // Convertir el tiempo transcurrido a días, horas, minutos y segundos
+    const segundos = Math.floor(tiempoTranscurrido / 1000);
+    const minutos = Math.floor(segundos / 60);
+    const horas = Math.floor(minutos / 60);
+    const dias = Math.floor(horas / 24);
+
+    let fecha_result;
+
+    if(dias > 0){
+      fecha_result = `${dias} d`;
+    }else if(horas > 0){
+      fecha_result = `${horas} h`
+    }else if(minutos > 0){
+      fecha_result = `${minutos} min`
+    }else if(segundos){
+      fecha_result = `${segundos} seg`;
+    }
+  
+    return {
+      fecha_result
+    };
+  }
+  
   let renderedPosts;
 
   if(postStatus === 'loading'){
     renderedPosts = <Loader/>
   }else if(postStatus === 'succeeded'){
-    renderedPosts = posts.posts.map( (post,index) => (
+
+    const postsOrdered = JSON.parse(JSON.stringify(posts.posts)).sort((a, b) => new Date(b.creation_date) - new Date(a.creation_date));
+
+    renderedPosts = postsOrdered.map( (post,index) => (
       <li className={stylesPost.post} key={index}>
         <HeaderPost 
           name_user={`${post.name_user} ${post.lastname_user}`} 
-          img_user={post.img_user}
-          creation_date={post.creation_date}
+          img_user={`${PREFIX_IMAGE}${post.img_user}`}
+          creation_date={calcularTiempoTranscurrido(post.creation_date)}
           modification_date={post.modification_date}
         />
         <MainPost

@@ -1,6 +1,8 @@
 import stylesHeaderPost from './HeaderPost.module.css'
 
-const HeaderPost = ({name_user,img_user,creation_date, modification_date}) => {
+const HeaderPost = ({name_user, img_user, creation_date, modification_date}) => {
+
+  const {fecha_result} = creation_date
 
   return (
     <div className={stylesHeaderPost.header_post}>  
@@ -11,7 +13,7 @@ const HeaderPost = ({name_user,img_user,creation_date, modification_date}) => {
       </a>  
       <div className={stylesHeaderPost.time_title}>
           <a className='name-user' href='#'><strong>{name_user}</strong></a>
-          <p className='time-ago'>20 minutes ago</p>
+          <p className='time-ago'>{fecha_result}</p>
       </div>
     </div>
   )
