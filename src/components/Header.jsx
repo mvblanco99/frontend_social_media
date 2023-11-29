@@ -10,6 +10,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useState } from 'react';
 
 
+const PREFIX_IMAGE = "http://localhost/api/src/";
 
 const Header = () => {
 
@@ -71,13 +72,14 @@ const Header = () => {
 
         <div className={stylesHeader.container_button_session}>
           <div className={stylesHeader.button_session} onClick={()=>{setOpen(!open)}}>
-          <img src={img} alt={`${name} ${lastname}`}/>
+          <img src={`${PREFIX_IMAGE}${img}`} alt={`${name} ${lastname}`}/>
 
           </div>
+          
           <div className={menuClassNames} >
             <h3>{name} {lastname}</h3>
             <ul>
-              <DropdownItem img = {PersonIcon} text = "My Profile"/>
+              <DropdownItem PersonIcon = {PersonIcon} text = "My Profile"/>
             </ul>
           </div>
           
@@ -91,11 +93,10 @@ const Header = () => {
 
   
 }
-function DropdownItem(props){
+function DropdownItem({PersonIcon}){
   return(
     <li className= {stylesHeader.dropdownItem}>
-      <img src={props.img} alt="" />
-      <a href="">{props.text}</a>
+      <PersonIcon />
     </li>
   )
 }
