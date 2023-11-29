@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import stylesHeader from './Header.module.css'
 import SearchIcon from '@mui/icons-material/Search';
 import { useSelector } from 'react-redux';
@@ -7,14 +7,20 @@ import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import PersonIcon from '@mui/icons-material/Person';
 import CloseIcon from '@mui/icons-material/Close';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 const Header = () => {
 
   const userState = useSelector(state => state.users)
-  const { img, name, lastname } = userState.user
+  const [currentUrl, setCurrentUrl] = useState('/home')
+  const url = useLocation()
+  
+  useEffect(() => {
+    setCurrentUrl(url.pathname)
+  },[url,useLocation])
 
+  const { img, name, lastname } = userState.user
   const [open, setOpen] = useState(false);
   const menuClassNames = ['Dropdown_menu', open?'active':'inactive'].map(c => stylesHeader[c]).join(' ');
 
@@ -32,7 +38,7 @@ const Header = () => {
             <span className={stylesHeader.icon_responsive}>
               <HomeIcon/>
             </span>
-            <span className={stylesHeader.text_responsive}>
+            <span className={`${stylesHeader.text_responsive} ${currentUrl === '/home' && stylesHeader.isActive}`}>
               Home
             </span>
           </Link>
@@ -41,7 +47,7 @@ const Header = () => {
             <span className={stylesHeader.icon_responsive}>
               <AccountBoxIcon/>
             </span>
-            <span className={stylesHeader.text_responsive}>
+            <span className={`${stylesHeader.text_responsive} ${currentUrl === '/profile' && stylesHeader.isActive}`}>
             Profile
             </span>
           </Link>

@@ -5,7 +5,7 @@ import MainPost from "./parts-of-posts/MainPost"
 import stylesPost from "./Post.module.css"
 import { useEffect } from "react"
 import { fetchPosts } from "../Slices/postsSlice"
-import Loader from "./Loader"
+import { CircularProgress } from "@mui/material"
 
 const Post = () => {
 
@@ -51,7 +51,7 @@ const Post = () => {
   let renderedPosts;
 
   if(postStatus === 'loading'){
-    renderedPosts = <Loader/>
+    renderedPosts = <div style={{width:'100%', textAlign:'center', marginTop:'30px'}}><CircularProgress /></div>
   }else if(postStatus === 'succeeded'){
 
     const postsOrdered = JSON.parse(JSON.stringify(posts.posts)).sort((a, b) => new Date(b.creation_date) - new Date(a.creation_date));

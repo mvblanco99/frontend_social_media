@@ -217,7 +217,7 @@
         font-size: 1em;
     }
     
-    .container_icons a:hover{
+    .isActive{
         color: #dd4633; 
     }
     

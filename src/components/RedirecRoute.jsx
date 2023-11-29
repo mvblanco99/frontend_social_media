@@ -10,6 +10,7 @@ const RedirecRoute = ({currentUrl}) => {
         '/home' : <Home/>,
         '/profile' : <Profile/>
     }
+    
     return components[currentUrl]
 }
 
