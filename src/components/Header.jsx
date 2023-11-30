@@ -5,9 +5,10 @@ import { useSelector } from 'react-redux';
 import HomeIcon from '@mui/icons-material/Home';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import PersonIcon from '@mui/icons-material/Person';
+
 import CloseIcon from '@mui/icons-material/Close';
 import { useEffect, useState } from 'react';
+import DropDownMenu from './DropDownMenu'
 
 
 const Header = () => {
@@ -20,9 +21,8 @@ const Header = () => {
     setCurrentUrl(url.pathname)
   },[url,useLocation])
 
-  const { img, name, lastname } = userState.user
-  const [open, setOpen] = useState(false);
-  const menuClassNames = ['Dropdown_menu', open?'active':'inactive'].map(c => stylesHeader[c]).join(' ');
+  const { img, name, lastname, username } = userState.user
+  
 
   return (
     <>
@@ -74,21 +74,7 @@ const Header = () => {
           
         </div>
 
-        <div className={stylesHeader.container_button_session}>
-          <div className={stylesHeader.button_session} onClick={()=>{setOpen(!open)}}>
-          <img src={img} alt={`${name} ${lastname}`}/>
-
-          </div>
-          
-          <div className={menuClassNames} >
-            <h3>{name} {lastname}</h3>
-            <ul>
-              <DropdownItem PersonIcon = {PersonIcon} text = "My Profile"/>
-            </ul>
-          </div>
-          
-          
-        </div>
+        <DropDownMenu />
         
       </div>
     </>
@@ -97,13 +83,7 @@ const Header = () => {
 
   
 }
-function DropdownItem({PersonIcon}){
-  return(
-    <li className= {stylesHeader.dropdownItem}>
-      <PersonIcon />
-    </li>
-  )
-}
+
 
 
 

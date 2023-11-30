@@ -1,12 +1,23 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import Cookies from 'js-cookie';
 import { jwtDecode } from "jwt-decode";
-import { client } from '../api/client'
+import { client } from '../api/client';
 
 
-export const login = createAsyncThunk('users/fetchUser',
+
+
+export const login = createAsyncThunk('users/fetchUser/login',
     async ({dataUser}) => {
         const response = await client.post('http://localhost/api/?categoria=login&accion=login', dataUser)
+        return response.data
+    }
+)
+
+export const logout = createAsyncThunk('users/fetchUser/logout',
+    async ({username}) => {
+        console.log(username)
+        const response = await client.post('http://localhost/api/?categoria=login&accion=logout', username)
+        /* console.log(response) */
         return response.data
     }
 )
@@ -51,7 +62,20 @@ const userSlice = createSlice({
             }else{
                 console.log(action.payload.error)
             }
-        })  
+        })
+        .addCase(login.rejected, (state) =>{ 
+            console.log("error en peticion")
+        }) 
+        .addCase(logout.pending, (state)=>{
+            state.status = "loading"
+        })
+        .addCase(logout.fulfilled, (state, action)=>{ 
+
+            if(action.payload.success == 1){
+                state.status="succeeded";
+                Cookies.remove('cookie_api_social_media_session');
+            }
+        })
     } 
 })
 

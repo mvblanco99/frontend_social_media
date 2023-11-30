@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import stylesMainPost from './MainPost.module.css'
 
 const MainPost = ({content, img_post}) => {

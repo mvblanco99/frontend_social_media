@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Posteos from "./posteos"
 import stylesInfoComponent from './InfoComponent.module.css'
 
