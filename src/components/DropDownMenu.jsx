@@ -8,7 +8,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import { useSelector } from 'react-redux';
 import { useDispatch } from "react-redux";
 import { setIsCookie } from "../Slices/sessionSlice";
-import { logout } from '../Slices/usersSlice';
+import { addUser, logout } from '../Slices/usersSlice';
 
 
 
@@ -31,9 +31,9 @@ const DropDownMenu = () =>{
     useEffect (
         ()=>{ 
             if(status == "succeeded" ){
+                dispatch(addUser({}))
                 dispatch(setIsCookie(false))
             }
-            
         },[status]) 
 
     

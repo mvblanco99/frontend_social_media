@@ -19,11 +19,10 @@ const Header = () => {
   
   useEffect(() => {
     setCurrentUrl(url.pathname)
-  },[url,useLocation])
+  },[url])
 
-  const { img, name, lastname, username } = userState.user
+  const { img, name, lastname } = userState.user
   
-
   return (
     <>
       <div className={stylesHeader.header}>

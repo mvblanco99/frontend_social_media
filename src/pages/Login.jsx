@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import { login } from '../Slices/usersSlice'
 import useVerifySesion from '../hooks/useVerifySesion'
+import { setIsCookie } from '../Slices/sessionSlice'
 
 const initialState = {
     username : '',
@@ -13,9 +14,9 @@ const initialState = {
 const Login = () => {
 
     const [dataUser, setDataUser] = useState(initialState)
-    const [authenticated, setAuthenticated] = useState(false)
-    const usersStatus = useSelector(state => state.users.status)
-    const data_user = useSelector(state => state.users.user)
+    const session = useSelector(state => state.session.isCookies)
+    const dataStateUsers = useSelector(state => state.users)
+    const { status , user } = dataStateUsers
 
     const dispacth = useDispatch()
     const navigate = useNavigate()
@@ -31,17 +32,15 @@ const Login = () => {
         dispacth(login({dataUser}))
     }
 
-    useEffect(() => {
-        Object.keys(data_user).length > 0 && setAuthenticated(true)
-    },[data_user])
+    useEffect(()=>{
+        if(session) navigate('/home')
+    },[session])
 
-    useEffect(() => {
-        if(authenticated) navigate('/home')
-    },[authenticated])
+    useEffect(()=>{
+        if(status == 'succeeded' & Object.keys(user).length > 0) dispacth(setIsCookie(true))
+    }, [status])
+
     
-    if(usersStatus === 'loading'){
-        console.log('cargando')
-    }
 
   return (
      <>
