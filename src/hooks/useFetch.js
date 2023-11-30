@@ -12,7 +12,7 @@ const useFetch = () => {
 
         const body = {
             method : dataUser ? 'POST' : 'GET',
-            body : JSON.stringify(dataUser),
+            body : dataUser && JSON.stringify(dataUser),
             headers : {...headers, ...headersUser}
         }
 
