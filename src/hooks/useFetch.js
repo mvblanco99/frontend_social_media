@@ -1,23 +1,23 @@
 import { useState } from "react"
 
-const useRegister = () => {
+const useFetch = () => {
     
     const [loading, setLoading] = useState(false)
     const [error,setError] = useState(false)
     const [data,setData] = useState(0)
 
-    const fetchApi = async ({dataUser,URL_API}) => {
-
+    const fetchApi = async ({endpoint, dataUser, headersUser = {}}) => {
+        const headers = { 'Content-Type': 'application/json' }
         setLoading(true)
 
         const body = {
-            method : 'POST',
+            method : dataUser ? 'POST' : 'GET',
             body : JSON.stringify(dataUser),
-            headers : { 'Content-Type': 'application/json' }
+            headers : {...headers, ...headersUser}
         }
 
         try {
-            const res = await fetch(URL_API,body)
+            const res = await fetch(endpoint,body)
             const data = await res.json()
             setData(data)
             setLoading(false)
@@ -38,4 +38,4 @@ const useRegister = () => {
 
 }
 
-export default useRegister
+export default useFetch

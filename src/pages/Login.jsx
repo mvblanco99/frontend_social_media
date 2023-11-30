@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import stylesLogin from './Login.module.css'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux"
-import { fetchUser } from '../Slices/usersSlice'
+import { login } from '../Slices/usersSlice'
 import useVerifySesion from '../hooks/useVerifySesion'
 
 const initialState = {
@@ -28,7 +28,7 @@ const Login = () => {
 
     const onHandleSubmit = e => {
         e.preventDefault();
-        dispacth(fetchUser({dataUser}))
+        dispacth(login({dataUser}))
     }
 
     useEffect(() => {

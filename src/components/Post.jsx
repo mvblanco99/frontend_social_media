@@ -39,7 +39,9 @@ const Post = () => {
       fecha_result = `${horas} h`
     }else if(minutos > 0){
       fecha_result = `${minutos} min`
-    }else if(segundos){
+    }else if(segundos  == 0){
+      fecha_result = 'Now';
+    }else if(segundos  > 0){
       fecha_result = `${segundos} seg`;
     }
   

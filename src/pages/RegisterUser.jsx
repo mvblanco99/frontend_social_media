@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom'
 import stylesRegisterUser from './RegisterUser.module.css'
 import { useEffect, useState } from 'react'
-import useRegister from '../hooks/useRegister'
+import useFetch from '../hooks/useFetch'
 
 const initialState = {
     username: '',
@@ -19,7 +19,8 @@ const RegisterUser = () => {
     const navigate = useNavigate()
     
     const { username, password, name, lastname } = dataUser
-    const { data, loading, error, fetchApi } = useRegister()
+    const { data, error, loading, fetchApi } = useFetch()
+    
 
     const onHandleChangeDataUser = (e) => {
         setDataUser({
@@ -30,14 +31,17 @@ const RegisterUser = () => {
 
     const onSubmit = async (e) => {
         e.preventDefault()
-        await fetchApi({dataUser,URL_API});  
+        await fetchApi({ 
+            endpoint : URL_API,
+            dataUser
+        });  
     }
 
-    if(loading)console.log('cargando')
-    if(error) console.log('error')
-    console.log(data)
+    console.log(loading)
+    console.log(error)
 
-    useEffect(()=>{ if(data.success === 1) setIsRegistered(true) },[data])
+
+    useEffect(()=>{ if(data?.success === 1) setIsRegistered(true) },[data])
     useEffect(()=>{ if(is_registered) navigate('/') },[is_registered, navigate])
     
     return (

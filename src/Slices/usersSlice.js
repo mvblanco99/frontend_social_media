@@ -1,24 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import Cookies from 'js-cookie';
 import { jwtDecode } from "jwt-decode";
+import { client } from '../api/client'
 
 
-export const fetchUser = createAsyncThunk('users/fetchUser',
+export const login = createAsyncThunk('users/fetchUser',
     async ({dataUser}) => {
-        
-        const body = {
-            method : 'POST',
-            headers : { 'Content-Type': 'application/json' },
-            body : JSON.stringify(dataUser)   
-        }
-
-        try {
-            const response = await fetch('http://localhost/api/?categoria=login',body);
-            const data = await response.json()
-            return data;
-        } catch (error) {
-            console.log(error)
-        }
+        const response = await client.post('http://localhost/api/?categoria=login&accion=login', dataUser)
+        return response.data
     }
 )
 
@@ -36,12 +25,13 @@ const userSlice = createSlice({
         }
     },
     extraReducers : (builder) => {
-        builder.addCase(fetchUser.pending, (state) => {
+        builder.addCase(login.pending, (state) => {
             state.status = 'loading'
         })
-        .addCase(fetchUser.fulfilled, (state, action) => {
+        .addCase(login.fulfilled, (state, action) => {
             state.status='succeeded'
 
+            console.log(action.payload)
             if(action.payload.success != undefined){
 
                 //recupero el token

@@ -1,29 +1,17 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { client } from '../api/client'
 
 export const fetchPosts = createAsyncThunk('posts/fetchAllPosts', 
     async () => {
-        const res = await fetch('http://localhost/api/?categoria=posts&accion=all_posts')
-        const data = await res.json()
-        return data
+        const res = await client.get('http://localhost/api/?categoria=posts&accion=all_posts')
+        return res.data
     }
 )
 
 export const addNewPost = createAsyncThunk('posts/addNewPost',
     async (dataPost) => {
-
-        const body = {
-            method : 'POST',
-            body : JSON.stringify(dataPost),
-            headers : { 'Content-Type': 'application/json' }
-        }
-
-        try {
-            const res = await fetch('http://localhost/api/?categoria=posts&accion=add_post',body)
-            const data = await res.json()
-            return data
-        } catch (error) {
-            console.log(error)
-        }
+        const response = await client.post('http://localhost/api/?categoria=posts&accion=add_post', dataPost)
+        return response.data
     }
 )
 
