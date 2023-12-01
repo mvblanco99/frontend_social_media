@@ -24,7 +24,7 @@ const Post = () => {
   let renderedPosts;
 
   if(postStatus === 'loading'){
-    renderedPosts = <div style={{width:'100%', textAlign:'center', marginTop:'30px'}}><CircularProgress /></div>
+    renderedPosts = <div style={{width:'100%', textAlign:'center', marginTop:'30px'}}><CircularProgress/></div>
   }else if(postStatus === 'succeeded'){
 
     const postsOrdered = JSON.parse(JSON.stringify(posts.posts)).sort((a, b) => new Date(b.creation_date) - new Date(a.creation_date));
