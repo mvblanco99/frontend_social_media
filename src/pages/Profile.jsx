@@ -1,7 +1,11 @@
 import stylesProfile from './Profile.module.css'
 import Header from '../components/Header'
+import useVerifySesion from '../hooks/useVerifySesion'
 
 const Profile = () => {
+
+  useVerifySesion()
+  
   return (
     <>
       <Header/>

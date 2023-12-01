@@ -1,44 +1,27 @@
 import stylesDropDownMenu from './DropDownMenu.module.css';
+
 import PersonIcon from '@mui/icons-material/Person';
-import {  useEffect, useState } from 'react';
 import ManageSearchIcon from '@mui/icons-material/ManageSearch';
 import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
 
-import { useSelector } from 'react-redux';
-import { useDispatch } from "react-redux";
-import { setIsCookie } from "../Slices/sessionSlice";
-import { addUser, logout } from '../Slices/usersSlice';
-
-
+import { useSelector,useDispatch } from 'react-redux';
+import { useState } from 'react';
+import { logout } from '../Slices/sessionSlice';
 
 // eslint-disable-next-line react/prop-types
 const DropDownMenu = () =>{
 
+    const [open, setOpen] = useState(false);
+    const dispatch = useDispatch();
     const userState = useSelector(state => state.users)
     const { img, name, lastname, username } = userState.user
-    const status = useSelector(state => state.users.status)
     
-
-    const dispatch = useDispatch();
-
     const handleCloseSession = (e)=>{
         e.preventDefault();
-        
         dispatch(logout({username}))
     }
 
-    useEffect (
-        ()=>{ 
-            if(status == "succeeded" ){
-                dispatch(addUser({}))
-                dispatch(setIsCookie(false))
-            }
-        },[status]) 
-
-    
-    
-    const [open, setOpen] = useState(false);
     const menuClassNames = ['Dropdown_menu', open?'active':'inactive'].map(c => stylesDropDownMenu[c]).join(' ');
 
     return(
@@ -66,9 +49,9 @@ const DropDownMenu = () =>{
                     <SettingsIcon />
                     <a href="">Settings</a>
                 </li>
-                <li className= {stylesDropDownMenu.dropdownItem}>
+                <li className= {stylesDropDownMenu.dropdownItem} onClick={handleCloseSession}>
                     <LogoutIcon />
-                    <a onClick={handleCloseSession}>Logout</a>
+                    <a>Logout</a>
                 </li>
 
             </ul>

@@ -2,9 +2,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import stylesLogin from './Login.module.css'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux"
-import { login } from '../Slices/usersSlice'
+import { login } from '../Slices/sessionSlice'
 import useVerifySesion from '../hooks/useVerifySesion'
-import { setIsCookie } from '../Slices/sessionSlice'
 
 const initialState = {
     username : '',
@@ -15,9 +14,7 @@ const Login = () => {
 
     const [dataUser, setDataUser] = useState(initialState)
     const session = useSelector(state => state.session.isCookies)
-    const dataStateUsers = useSelector(state => state.users)
-    const { status , user } = dataStateUsers
-
+    
     const dispacth = useDispatch()
     const navigate = useNavigate()
 
@@ -35,12 +32,6 @@ const Login = () => {
     useEffect(()=>{
         if(session) navigate('/home')
     },[session])
-
-    useEffect(()=>{
-        if(status == 'succeeded' & Object.keys(user).length > 0) dispacth(setIsCookie(true))
-    }, [status])
-
-    
 
   return (
      <>
