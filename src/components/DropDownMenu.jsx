@@ -27,37 +27,33 @@ const DropDownMenu = () =>{
     return(
         <div className={stylesDropDownMenu.container_button_session}>
             <div className={stylesDropDownMenu.button_session} onClick={()=>{setOpen(!open)}}>
-            <img src={img} alt={`${name} ${lastname}`}/>
-
-        </div>
+                <img src={img} alt={`${name} ${lastname}`}/>
+            </div>
         
-        <div className={menuClassNames} >
-            <h3>{name} {lastname}</h3>
-            <ul>
-                <li className= {stylesDropDownMenu.dropdownItem}>
-                    <PersonIcon />
-                    <a href="">Profile</a>
-                </li>
-                <li className= {stylesDropDownMenu.dropdownItem}>
-                    <ManageSearchIcon />
-                    <a href="">Activity</a>
-                </li>
-                
-            </ul>
-            <ul>
-                <li className= {stylesDropDownMenu.dropdownItem}>
-                    <SettingsIcon />
-                    <a href="">Settings</a>
-                </li>
-                <li className= {stylesDropDownMenu.dropdownItem} onClick={handleCloseSession}>
-                    <LogoutIcon />
-                    <a>Logout</a>
-                </li>
-
-            </ul>
-        </div>
-          
-          
+            <div className={menuClassNames} >
+                <h3>{name} {lastname}</h3>
+                <ul>
+                    <li className= {stylesDropDownMenu.dropdownItem}>
+                        <PersonIcon />
+                        <a href="">Profile</a>
+                    </li>
+                    <li className= {stylesDropDownMenu.dropdownItem}>
+                        <ManageSearchIcon />
+                        <a href="">Activity</a>
+                    </li>
+                    
+                </ul>
+                <ul>
+                    <li className= {stylesDropDownMenu.dropdownItem}>
+                        <SettingsIcon />
+                        <a href="">Settings</a>
+                    </li>
+                    <li className= {stylesDropDownMenu.dropdownItem} onClick={handleCloseSession}>
+                        <LogoutIcon />
+                        <a>Logout</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     )
 }

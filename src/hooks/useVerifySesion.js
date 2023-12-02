@@ -21,7 +21,7 @@ const useVerifySesion = () => {
       //Extraigo cookie
         const token = cookie.get('cookie_api_social_media_session');
         
-        //Verificar que la sesion este activa
+        //Verificar que exista una cookie
         if( token === undefined){
           //si no lo esta, se redirige al login
           dispatch(setIsCookie(false))

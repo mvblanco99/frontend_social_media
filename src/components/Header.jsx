@@ -9,6 +9,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import CloseIcon from '@mui/icons-material/Close';
 import { useEffect, useState } from 'react';
 import DropDownMenu from './DropDownMenu'
+import { Badge, IconButton } from '@mui/material';
 
 
 const Header = () => {
@@ -53,7 +54,12 @@ const Header = () => {
 
           <Link to='#'>
             <span className={stylesHeader.icon_responsive}>
-              <NotificationsIcon/>
+            <IconButton aria-label={100}>
+              <Badge badgeContent={100} color="secondary">
+                <NotificationsIcon/>
+              </Badge>
+            </IconButton>
+              
             </span>
             <span className={stylesHeader.text_responsive}>
             Notifications
