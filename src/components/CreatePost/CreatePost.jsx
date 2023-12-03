@@ -2,7 +2,7 @@ import { useState } from "react";
 import stylesCreatePost from "./CreatePost.module.css"
 // import { addNewPost } from "../Slices/postsSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { addNewPost } from "../Slices/postsSlice";
+import { addNewPost } from "../../Slices/postsSlice";
 
 const CreatePost = () => {
 

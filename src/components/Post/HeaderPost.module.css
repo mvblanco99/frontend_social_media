@@ -24,10 +24,14 @@
 }
 
 .time_title p, .time_title a {
-    font-size: 1em;
-    margin-top: 5px;
+    font-size: .9em;
     text-decoration: none;
     color: black;
+}
+
+.time_title p{
+    font-size: .7em;
+    color: #666666;
 }
 
 .time_title a{

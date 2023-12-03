@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from "react-redux"
-import FooterPost from "./parts-of-posts/FooterPost"
-import HeaderPost from "./parts-of-posts/HeaderPost"
-import MainPost from "./parts-of-posts/MainPost"
+import FooterPost from "./FooterPost"
+import HeaderPost from "./HeaderPost"
+import MainPost from "./MainPost"
 import stylesPost from "./Post.module.css"
 import { useEffect } from "react"
-import { fetchPosts } from "../Slices/postsSlice"
+import { fetchPosts } from "../../Slices/postsSlice"
 import { CircularProgress } from "@mui/material"
-import { calcularTiempoTranscurrido } from "../utilities/date"
+import { calcularTiempoTranscurrido } from "../../utilities/date"
 
 const Post = () => {
 

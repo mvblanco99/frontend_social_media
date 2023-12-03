@@ -1,7 +1,4 @@
 /* Dispositivos moviles */
-
-
-
 .header{
     width: 100%;
     height: 60px;
@@ -45,8 +42,6 @@
     color: black;
 }
 
-
-
 .icon_responsive{
     display: block;
 }
@@ -62,40 +57,31 @@
 .search_button{
     background-color: transparent;
     border: none;
+    color: #757575;
 }
 
 
 
 @media screen and (min-width : 540px){
-    
+    .container_icons{
+        justify-content: space-between;
+    }
+
+    .icon_responsive{
+        font-size: 1em;
+    }
 }
 
 @media screen and (min-width : 820px){
+    .icon_responsive{
+        font-size: 2em;
+    }
 }
 
 @media screen and (min-width : 1024px) {
 
     .logo{
         display: none;
-    }
-
-    .container_button_session{
-        width: calc(5% + 45px);
-        height: 45px;
-        display: flex;
-        justify-content: flex-start;
-    }
-
-    .container_button_session div{
-        width: 45px;
-        height: 45px;
-        border: none;
-        background-color: #fff;
-    }
-
-    .container_button_session div img{
-        width: 100%;
-        height: 45px;
     }
 
     .container_icons{
@@ -159,22 +145,6 @@
         outline: none;
     }
     
-    .button{
-        min-width: 40px;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        border-radius: 50%;
-        border: none;
-    }
-    
-    img{
-        width: 100%;
-        height: auto;
-        border-radius: 50%; 
-    }
-
     .icon_responsive{
         display: none;
     }
@@ -190,13 +160,6 @@
         width: calc(90% - 45px);
         padding-left: 10%;
         position: relative;
-    }
-
-    .container_button_session{
-        width: calc(10% + 45px);
-        height: 45px;
-        display: flex;
-        justify-content: flex-start;
     }
 
     .container_icons{
