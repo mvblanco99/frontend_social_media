@@ -16,10 +16,10 @@ const Post = () => {
   const isCookies = useSelector(state => state.session.isCookies);
 
   useEffect(()=>{
-    if (postStatus === 'idle' & isCookies) {
+    if (isCookies) {
       dispatch(fetchPosts())
     }
-  },[postStatus])
+  },[isCookies])
 
   let renderedPosts;
 

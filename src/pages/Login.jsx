@@ -19,7 +19,7 @@ const Login = () => {
     const navigate = useNavigate()
 
     useVerifySesion();
-
+    
     const { username, password } = dataUser
 
     const onHandleChange = e => setDataUser({...dataUser,[e.target.name] : e.target.value})
@@ -31,7 +31,7 @@ const Login = () => {
 
     useEffect(()=>{
         if(session) navigate('/home')
-    },[session])
+    },[session, navigate])
 
   return (
      <>
