@@ -1,8 +1,16 @@
-import stylesLoader from './Loader.module.css'
+import { CircularProgress } from "@mui/material"
 
 const Loader = () => {
   return (
-    <span className={stylesLoader.loader}></span>
+    <>
+        <div style={
+            {
+                width:'100%', 
+                background:'#fff'
+            }}>
+            <CircularProgress />
+        </div>
+    </>
   )
 }
 

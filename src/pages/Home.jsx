@@ -1,8 +1,8 @@
-import CreatePost from "../components/CreatePost"
-import Post from "../components/Post"
 import stylesHome from "./Home.module.css"
-import InfoComponent from "../components/InfoComponent"
-import Header from "../components/Header"
+import CreatePost from "../components/CreatePost/CreatePost"
+import Post from "../components/Post/Post"
+import InfoComponent from "../components/infoComponents/InfoComponent"
+import Header from "../components/Header/Header"
 import useVerifySesion from "../hooks/useVerifySesion"
 
 const Home = () => {
@@ -27,6 +27,7 @@ const Home = () => {
             </div>
     
             <div className={stylesHome.rigth_section}>
+              <InfoComponent title='Recent Notifications'/>
               <InfoComponent title='Recent Notifications'/>
             </div>
     

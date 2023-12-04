@@ -6,7 +6,6 @@ import HomeIcon from '@mui/icons-material/Home';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 
-import CloseIcon from '@mui/icons-material/Close';
 import { useEffect, useState } from 'react';
 import DropDownMenu from './DropDownMenu'
 import { Badge, IconButton } from '@mui/material';
@@ -36,7 +35,11 @@ const Header = () => {
           
           <Link to='/home'> 
             <span className={stylesHeader.icon_responsive}>
-              <HomeIcon/>
+              <IconButton >
+              <Badge  color="secondary">
+                <HomeIcon/>
+              </Badge>
+            </IconButton>
             </span>
             <span className={`${stylesHeader.text_responsive} ${currentUrl === '/home' && stylesHeader.isActive}`}>
               Home
@@ -45,7 +48,11 @@ const Header = () => {
 
           <Link to='/profile'>
             <span className={stylesHeader.icon_responsive}>
-              <AccountBoxIcon/>
+            <IconButton >
+              <Badge  color="secondary">
+                <AccountBoxIcon/>
+              </Badge>
+            </IconButton>
             </span>
             <span className={`${stylesHeader.text_responsive} ${currentUrl === '/profile' && stylesHeader.isActive}`}>
             Profile
@@ -73,7 +80,18 @@ const Header = () => {
                 placeholder="Search"
                 className={stylesHeader.input_text}
               />
-              <button type='button' className={stylesHeader.search_button} ><SearchIcon/></button>
+              
+              <button type='button' className={`${stylesHeader.text_responsive} ${stylesHeader.search_button}`} >
+                <SearchIcon/>
+              </button>
+
+              <span className={stylesHeader.icon_responsive}>
+                <IconButton >
+                  <Badge  color="secondary">
+                    <SearchIcon/>
+                  </Badge>
+                </IconButton>
+              </span>
             </label>
           </form>
           

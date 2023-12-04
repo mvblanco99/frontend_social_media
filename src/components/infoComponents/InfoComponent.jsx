@@ -17,7 +17,7 @@ const InfoComponent = ({title, buttonEnabled = false}) => {
             <Posteos title='Travel The World' text='Adventure' buttonEnabled={buttonEnabled}/>
             <Posteos title='Travel the world' text='Adventure' buttonEnabled={buttonEnabled}/>
             <Posteos title='Travel the world' text='Adventure' buttonEnabled={buttonEnabled}/>
-            <Posteos title='Travel the world' text='Adventure' buttonEnabled={buttonEnabled}/>
+            {/* <Posteos title='Travel the world' text='Adventure' buttonEnabled={buttonEnabled}/> */}
         </ul>
       </div>  
     </>

@@ -1,28 +1,19 @@
 import styles_app from "./App.module.css"
-import { useLocation } from 'react-router-dom'
-import RedirecRoute from './components/RedirecRoute'
-import { useEffect, useState } from "react";
+import { Route, Routes } from 'react-router-dom'
+import Login from "./pages/Login";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
+import RegisterUser from "./pages/RegisterUser";
 function App() {
-
-  const location = useLocation();
-  const [currentUrl, setCurrentUrl] = useState(location.pathname)
-  const [componentRendered, setComponentRendered] = useState('')
-  
-  useEffect(()=>{
-    setCurrentUrl(location.pathname)
-  },[location])
-
-  useEffect(()=>{
-    setComponentRendered( (componentRendered) => {
-      componentRendered = RedirecRoute({currentUrl})
-      return componentRendered
-    })
-  },[currentUrl])
-
   return (
     <>
       <div className={styles_app.container_app}>
-          {componentRendered}
+          <Routes>
+            <Route path="/" element={<Login/>}/>
+            <Route path="/home" element={<Home/>}/>
+            <Route path="/profile" element={<Profile/>}/>
+            <Route path="/register" element={<RegisterUser/>}/>
+          </Routes>
       </div>
     </>
   )
