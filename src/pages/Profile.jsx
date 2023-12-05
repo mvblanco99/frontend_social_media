@@ -7,6 +7,7 @@ import Post from "../components/Post/Post"
 import InfoComponent from "../components/infoComponents/InfoComponent"
 import ProfileBanner from "../components/Profile/ProfileBanner"    
 import { useState } from 'react'
+import Timeline from './Profile-Pages/TimeLine'
 
 const Profile = () => {
 
@@ -26,6 +27,8 @@ const Profile = () => {
       <Header/>
       <div className={stylesProfile.container}>
         <ProfileBanner pageSelected={pageSelected}/>
+
+        
 
         <div className={stylesProfile.home}>
           <div className={stylesHome.left_section}>

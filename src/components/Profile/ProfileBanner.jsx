@@ -1,19 +1,22 @@
 /* eslint-disable react/prop-types */
-
+import { Link } from 'react-router-dom'
 import stylesProfileBanner from './ProfileBanner.module.css'
 
 import { useSelector } from 'react-redux';
+import useVerifySesion from "../../hooks/useVerifySesion"
 
-const ProfileBanner = ({pageSelected}) =>{
+const ProfileBanner = () =>{
     const userState = useSelector(state => state.users)
     const { img, name, lastname } = userState.user
 
-    
+    useVerifySesion();
 
-    const handleClick = (data) =>{
+
+    /* const handleClick = (data) =>{
         pageSelected(data)
         
-    }
+    } */
+    
 
     return(
         <>
@@ -27,34 +30,35 @@ const ProfileBanner = ({pageSelected}) =>{
                 <div className={stylesProfileBanner.profile_banner_whiteSection}>
                     <ul>
                         <li >
-                            <a onClick={()=>handleClick("Timeline")}>Timeline</a>
+                            <Link to='/Profile-Pages/TimeLine'>
+                                Timeline
+                            </Link>
                         </li>
                         
                         <li >
-                            <a onClick={()=>handleClick("About")}>
-                            About
-                            </a>
+                            <Link to='/Profile-Pages/About'>
+                                About
+                            </Link>
                         </li>
 
                         <li >
-                            <a onClick={()=>handleClick("Photos")}>
-                            Photos
-                            </a>
+                            <Link to='/Profile-Pages/Photos'>
+                                Photos
+                            </Link>
                         </li>
 
                         <li >
-                            <a onClick={()=>handleClick("Friends")}>
-                            Friends
-                            </a>
+                            <Link to='/Profile-Pages/Friends'>
+                                Friends
+                            </Link>
                         </li>
                         
                         <li >
-                            <a onClick={()=>handleClick("More")}>
+                            <a >
                             More
                             </a>
                         </li>
                         
-                       
                     </ul>
                 </div>
 
