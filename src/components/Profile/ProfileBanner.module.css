@@ -1,0 +1,42 @@
+.profile_banner{
+    width: 100%;
+    height: 250px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    
+}
+.profile_banner_coverPhoto{
+    width: 100%;
+    height: 50%;
+    background-image: url(https://live.staticflickr.com/2857/10509570106_5a0699853b_c.jpg);
+    background-size: cover; /* you can change it based on your needs */
+    background-position: inherit; /* you can change it based on your needs */
+    background-repeat: no-repeat;
+}
+
+.profile_banner img{
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    top: 140px;
+}
+
+.profile_banner_whiteSection{
+    width: 100%;
+    height: 50%;
+    
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile_banner_whiteSection ul{
+    display: flex;
+    margin-top: 60px;
+    list-style: none;
+    gap: 20px;
+}
