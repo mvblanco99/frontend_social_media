@@ -35,8 +35,9 @@ const CreatePost = () => {
                 </a>
                 <div className={stylesCreatePost.container_form}>
                     <form className={stylesCreatePost.form} onSubmit={onSubmit}>
-                        <label htmlFor="">
+                        <label htmlFor="CreatePostInput">
                             <input 
+                                id="CreatePostInput"
                                 type="text" 
                                 placeholder="Say Something"
                                 className={stylesCreatePost.input_text}

@@ -52,7 +52,7 @@ const Header = () => {
             </span>
           </Link>
 
-          <Link to='/profile'>
+          <Link to='/Profile-Pages/TimeLine'>
             <span className={stylesHeader.icon_responsive}>
             <IconButton >
               <Badge  color="secondary">
@@ -80,9 +80,14 @@ const Header = () => {
           </Link>
 
           <form className={stylesHeader.form}> 
+<<<<<<< HEAD
             <label htmlFor="">
               
+=======
+            <label htmlFor="Search_Input">
+>>>>>>> 65ea6c7d9331b1d4ee416dc2e341548268cecfbe
               <input 
+                id='Search_Input'
                 type="text" 
                 placeholder="Search"
                 className={stylesHeader.input_text}
