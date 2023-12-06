@@ -27,12 +27,14 @@ const DropDownMenu = () =>{
     // console.log(menuClassNames)
     return(
         <div className={stylesDropDownMenu.container_button_session}>
+            
             <div className={stylesDropDownMenu.button_session} onClick={()=>{setOpen(!open)}}>
                 <img src={img} alt={`${name} ${lastname}`}/>
             </div>
         
             <div className={ open ? `${stylesDropDownMenu.Dropdown_menu} ${stylesDropDownMenu.active}`: 
             `${stylesDropDownMenu.Dropdown_menu} ${stylesDropDownMenu.inactive}`} >
+
                 <h3 className={stylesDropDownMenu.name}>{name} {lastname}</h3>
                 <hr />
                 <ul>

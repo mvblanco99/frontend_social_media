@@ -6,19 +6,13 @@ import CreatePost from "../components/CreatePost/CreatePost"
 import Post from "../components/Post/Post"
 import InfoComponent from "../components/infoComponents/InfoComponent"
 import ProfileBanner from "../components/Profile/ProfileBanner"    
-import { useState } from 'react'
-import Timeline from './Profile-Pages/TimeLine'
+
 
 const Profile = () => {
 
   useVerifySesion()
 
-  const[page, setPage] = useState("")
 
-  const pageSelected = (data) =>{
-    console.log(data)
-    setPage(data)
-  }
 
  
   
@@ -26,7 +20,7 @@ const Profile = () => {
     <>
       <Header/>
       <div className={stylesProfile.container}>
-        <ProfileBanner pageSelected={pageSelected}/>
+        <ProfileBanner />
 
         
 

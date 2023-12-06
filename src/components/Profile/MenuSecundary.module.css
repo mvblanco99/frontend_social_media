@@ -1,0 +1,19 @@
+.menu_container{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: white;
+    height: 60px;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+}
+.menu_container ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.menu_container button{
+    background-color: transparent;
+    border: none;
+}
