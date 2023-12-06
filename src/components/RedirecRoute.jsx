@@ -11,8 +11,7 @@ const RedirecRoute = ({currentUrl}) => {
         '/' : <Login/>,
         '/register' : <RegisterUser/>,
         '/home' : <Home/>,
-        '/profile' : <Profile/>,
-        '/Profilepages/About': <About/>,
+        '/profile' : <Profile/>
         
     }
     

@@ -1,5 +1,16 @@
 .menu_container{
     display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: white;
+    height: 60px;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+
+}
+.menu_containerAbout{
+    display: flex;
     justify-content: space-evenly;
     background-color: white;
     height: 60px;
@@ -7,13 +18,17 @@
     width: 90%;
     margin: 0 auto;
 }
-.menu_container ul {
+.list_option {
     display: flex;
     list-style: none;
-    gap: 20px;
+    gap: 10px;
+}
+.list_option li a{
+    text-decoration: none;
+    color: black;
 }
 
-.menu_container button{
+.menu_containerAbout button{
     background-color: transparent;
     border: none;
 }
