@@ -4,15 +4,22 @@ import Post from "../components/Post/Post"
 import InfoComponent from "../components/infoComponents/InfoComponent"
 import Header from "../components/Header/Header"
 import useVerifySesion from "../hooks/useVerifySesion"
+import SearchResponsive from "../components/Header/SearchResponsive"
+import { useContext } from "react"
+import { HeaderContext } from "../context/HeaderContext"
 
 const Home = () => {
-  
+
+  const { openSearch } = useContext(HeaderContext)
   useVerifySesion();
 
   return (
     <>
-      <Header/>
-
+        <Header/>
+        {
+          openSearch && <SearchResponsive/>
+        }
+        
       <div className={stylesHome.container}>
         <div className={stylesHome.home}>
             

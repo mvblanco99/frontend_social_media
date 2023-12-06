@@ -1,21 +1,27 @@
-import { Link, useLocation } from 'react-router-dom'
 import stylesHeader from './Header.module.css'
-import SearchIcon from '@mui/icons-material/Search';
+import { useContext, useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux';
+
+
 import HomeIcon from '@mui/icons-material/Home';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-
-import { useEffect, useState } from 'react';
-import DropDownMenu from './DropDownMenu'
 import { Badge, IconButton } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
+import CloseIcon from '@mui/icons-material/Close';
 
+
+
+import DropDownMenu from './DropDownMenu'
+import { HeaderContext } from '../../context/HeaderContext';
 
 const Header = () => {
 
   const userState = useSelector(state => state.users)
   const [currentUrl, setCurrentUrl] = useState('/home')
   const url = useLocation()
+  const { handleOpenSearch, openSearch } = useContext(HeaderContext)
   
   useEffect(() => {
     setCurrentUrl(url.pathname)
@@ -72,34 +78,39 @@ const Header = () => {
             Notifications
             </span>
           </Link>
-        
+
           <form className={stylesHeader.form}> 
+<<<<<<< HEAD
+            <label htmlFor="">
+              
+=======
             <label htmlFor="Search_Input">
+>>>>>>> 65ea6c7d9331b1d4ee416dc2e341548268cecfbe
               <input 
                 id='Search_Input'
                 type="text" 
                 placeholder="Search"
                 className={stylesHeader.input_text}
               />
-              
-              <button type='button' className={`${stylesHeader.text_responsive} ${stylesHeader.search_button}`} >
-                <SearchIcon/>
+
+              <button 
+                type='button' 
+                className={`${stylesHeader.text_responsive} ${stylesHeader.search_button}`} >
+                    <SearchIcon/>
               </button>
 
-              <span className={stylesHeader.icon_responsive}>
+              <span className={stylesHeader.icon_responsive} onClick={handleOpenSearch} >
                 <IconButton >
                   <Badge  color="secondary">
-                    <SearchIcon/>
+                    {openSearch ? <CloseIcon/> : <SearchIcon/>}
                   </Badge>
                 </IconButton>
               </span>
+
             </label>
           </form>
-          
         </div>
-
         <DropDownMenu />
-        
       </div>
     </>
   )

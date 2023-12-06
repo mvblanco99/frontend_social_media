@@ -10,7 +10,7 @@ import { setIsCookie } from "../Slices/sessionSlice";
 const useVerifySesion = () => {
 
     const [searchCookie, setSearchCookie] = useState(false)
-    const isCookies = useSelector(state => state.session.isCookies);
+    const isCookies = useSelector(state => state?.session?.isCookies);
     const location  = useLocation()
     const cookie = new Cookies()
 
