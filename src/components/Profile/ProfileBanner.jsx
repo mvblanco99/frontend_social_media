@@ -30,25 +30,25 @@ const ProfileBanner = () =>{
                 <div className={stylesProfileBanner.profile_banner_whiteSection}>
                     <ul>
                         <li >
-                            <Link to='/Profile-Pages/TimeLine'>
+                            <Link to='/Profile/TimeLine'>
                                 Timeline
                             </Link>
                         </li>
                         
                         <li >
-                            <Link to='/Profile-Pages/About'>
+                            <Link to='/Profile/About'>
                                 About
                             </Link>
                         </li>
 
                         <li >
-                            <Link to='/Profile-Pages/Photos'>
+                            <Link to='/Profile/Photos'>
                                 Photos
                             </Link>
                         </li>
 
                         <li >
-                            <Link to='/Profile-Pages/Friends'>
+                            <Link to='/Profile/Friends'>
                                 Friends
                             </Link>
                         </li>

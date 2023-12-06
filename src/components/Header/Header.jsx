@@ -55,7 +55,7 @@ const Header = () => {
             </span>
           </Link>
 
-          <Link to='/Profile-Pages/TimeLine'>
+          <Link to='/Profile/TimeLine'>
             <span className={stylesHeader.icon_responsive}>
             <IconButton >
               <Badge  color="secondary">
