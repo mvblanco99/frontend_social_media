@@ -6,7 +6,7 @@ const SearchResponsive = () => {
 
   return (
     <>
-        <div className={stylesSearchResponsive.container_search}>
+        <div className={stylesSearchResponsive.container_search} >
             <form className={stylesSearchResponsive.form}>
                 <label htmlFor="search_user">
                     <input 

@@ -5,22 +5,39 @@ import InfoComponent from "../components/infoComponents/InfoComponent"
 import Header from "../components/Header/Header"
 import useVerifySesion from "../hooks/useVerifySesion"
 import SearchResponsive from "../components/Header/SearchResponsive"
-import { useContext } from "react"
-import { HeaderContext } from "../context/HeaderContext"
+import { useDispatch, useSelector } from "react-redux"
+import { toogleDropDownMenu, toogleSearchResponsive } from "../Slices/panelSlice"
+import { useRef } from "react"
 
 const Home = () => {
 
-  const { openSearch } = useContext(HeaderContext)
+  const searchResponsive  = useSelector(state => state.panel.searchResponsive)
+  const dropdownMenu  = useSelector(state => state.panel.dropdownMenu)
+  const dispatch = useDispatch();
+  const referenceContainer = useRef()
   useVerifySesion();
+
+  const onHandleClick = e => {
+    if(referenceContainer.current.contains(e.target)){
+      
+      if(searchResponsive){
+        dispatch(toogleSearchResponsive())
+      }
+
+      if(dropdownMenu){
+        dispatch(toogleDropDownMenu())
+      }
+    }
+  }
 
   return (
     <>
         <Header/>
         {
-          openSearch && <SearchResponsive/>
+          searchResponsive && <SearchResponsive/>
         }
         
-      <div className={stylesHome.container}>
+      <div className={stylesHome.container} ref={referenceContainer} onClick={onHandleClick}>
         <div className={stylesHome.home}>
             
             <div className={stylesHome.left_section}>

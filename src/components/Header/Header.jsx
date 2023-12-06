@@ -1,8 +1,7 @@
 import stylesHeader from './Header.module.css'
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom'
-import { useSelector } from 'react-redux';
-
+import { useDispatch, useSelector } from 'react-redux';
 
 import HomeIcon from '@mui/icons-material/Home';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
@@ -11,17 +10,21 @@ import { Badge, IconButton } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 
-
-
 import DropDownMenu from './DropDownMenu'
-import { HeaderContext } from '../../context/HeaderContext';
+import { closeDropDownMenu, toogleSearchResponsive } from '../../Slices/panelSlice';
 
 const Header = () => {
 
-  const userState = useSelector(state => state.users)
   const [currentUrl, setCurrentUrl] = useState('/home')
+  const userState = useSelector(state => state.users)
+  const  searchResponsive  = useSelector(state => state.panel.searchResponsive)
   const url = useLocation()
-  const { handleOpenSearch, openSearch } = useContext(HeaderContext)
+  const dispatch = useDispatch()
+
+  const onHandleClick = () => {
+    dispatch(toogleSearchResponsive())
+    dispatch(closeDropDownMenu())
+  }
   
   useEffect(() => {
     setCurrentUrl(url.pathname)
@@ -80,12 +83,7 @@ const Header = () => {
           </Link>
 
           <form className={stylesHeader.form}> 
-<<<<<<< HEAD
-            <label htmlFor="">
-              
-=======
             <label htmlFor="Search_Input">
->>>>>>> 65ea6c7d9331b1d4ee416dc2e341548268cecfbe
               <input 
                 id='Search_Input'
                 type="text" 
@@ -99,10 +97,10 @@ const Header = () => {
                     <SearchIcon/>
               </button>
 
-              <span className={stylesHeader.icon_responsive} onClick={handleOpenSearch} >
+              <span className={stylesHeader.icon_responsive} onClick={onHandleClick} id='icon_search'>
                 <IconButton >
                   <Badge  color="secondary">
-                    {openSearch ? <CloseIcon/> : <SearchIcon/>}
+                    {searchResponsive ? <CloseIcon/> : <SearchIcon/>}
                   </Badge>
                 </IconButton>
               </span>

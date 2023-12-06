@@ -1,14 +1,15 @@
 /* Dispositivos moviles */
+.container{
+    width: 100%;
+    margin-top: 60px;
+}
+
 .home{
     width: 100%;
     display: flex;
     justify-content: space-between;
-}
-
-.container{
-    width: 100%;
     margin: 0 auto;
-    margin-top: 75px;
+    padding-top: 15px;
 }
 
 .center_section{
@@ -28,6 +29,10 @@
 
 @media screen and (min-width : 820px){
     .container{
+        width: 100%;
+    }
+
+    .home{
         width: 95%;
     }
     
@@ -44,8 +49,13 @@
 @media screen and (min-width : 1024px){
     
     .container{
+        width: 100%;
+    }
+
+    .home{
         width: 90%;
     }
+    
     
     .left_section{
         display: block;
@@ -65,6 +75,10 @@
 @media screen and (min-width : 1280px){
 
     .container{
+        width: 100%;
+    }
+
+    .home{
         width: 80%;
     }
 }

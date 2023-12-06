@@ -6,6 +6,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { addUser, clearData as clearDataUsers } from "../Slices/usersSlice";
 import { clearDataPosts } from "../Slices/postsSlice";
 import { setIsCookie } from "../Slices/sessionSlice";
+import { closeDropDownMenu, closeSearchResponsive } from "../Slices/panelSlice";
 
 const useVerifySesion = () => {
 
@@ -50,6 +51,8 @@ const useVerifySesion = () => {
       if( isCookies === false && searchCookie){
         dispatch(clearDataUsers())
         dispatch(clearDataPosts())
+        dispatch(closeDropDownMenu())
+        dispatch(closeSearchResponsive())
         //si no lo esta, se redirige al login
         navigate('/')
       }

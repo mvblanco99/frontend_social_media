@@ -6,20 +6,26 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
 
 import { useSelector,useDispatch } from 'react-redux';
-import { useContext, useRef, useState } from 'react';
+import { useState } from 'react';
 import { logout } from '../../Slices/sessionSlice';
 import { Link } from 'react-router-dom';
-import { HeaderContext } from '../../context/HeaderContext';
+import { closeSearchResponsive, toogleDropDownMenu } from '../../Slices/panelSlice';
+
 
 // eslint-disable-next-line react/prop-types
 const DropDownMenu = () =>{
 
-    const [open, setOpen] = useState(false);
     const dispatch = useDispatch();
     const userState = useSelector(state => state.users)
-    const { img, name, lastname, username } = userState.user
-    // const { handleOpenSearch, openSearch } = useContext(HeaderContext)
+    const dropdownMenu  = useSelector(state => state.panel.dropdownMenu)
     
+    const { img, name, lastname, username } = userState.user
+    
+    const onHandleClick = () => {
+        dispatch(toogleDropDownMenu())
+        dispatch(closeSearchResponsive())
+    }
+
     const handleCloseSession = (e)=>{
         e.preventDefault();
         dispatch(logout({username}))
@@ -27,13 +33,14 @@ const DropDownMenu = () =>{
 
     // const menuClassNames = ['Dropdown_menu', open?'active':'inactive'].map(c => stylesDropDownMenu[c]).join(' ');
     // console.log(menuClassNames)
+
     return(
         <div className={stylesDropDownMenu.container_button_session} >
-            <div className={stylesDropDownMenu.button_session} onClick={()=>{setOpen(!open)}}>
+            <div className={stylesDropDownMenu.button_session} onClick={onHandleClick}>
                 <img src={img} alt={`${name} ${lastname}`}/>
             </div>
         
-            <div className={ open ? `${stylesDropDownMenu.Dropdown_menu} ${stylesDropDownMenu.active}`: 
+            <div className={ dropdownMenu ? `${stylesDropDownMenu.Dropdown_menu} ${stylesDropDownMenu.active}`: 
             `${stylesDropDownMenu.Dropdown_menu} ${stylesDropDownMenu.inactive}`}>
                 <h3 className={stylesDropDownMenu.name}>{name} {lastname}</h3>
                 <hr />

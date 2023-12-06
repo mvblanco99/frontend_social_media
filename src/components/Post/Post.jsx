@@ -14,7 +14,7 @@ const Post = () => {
   const posts = useSelector(state => state.posts)
   const postStatus = useSelector(state => state.posts.status)
   const isCookies = useSelector(state => state.session.isCookies);
-
+  
   useEffect(()=>{
     if (isCookies) {
       dispatch(fetchPosts())
