@@ -26,7 +26,6 @@ const Profile = () => {
   useVerifySesion()
   let {section} = useParams();
 
-  
   useVerifySesion();
 
   const onHandleClick = e => {

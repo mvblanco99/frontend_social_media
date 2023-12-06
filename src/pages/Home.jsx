@@ -8,6 +8,7 @@ import SearchResponsive from "../components/Header/SearchResponsive"
 import { useDispatch, useSelector } from "react-redux"
 import { toogleDropDownMenu, toogleSearchResponsive } from "../Slices/panelSlice"
 import { useRef } from "react"
+import ImageProfileHome from "../components/ImageProfileHome"
 
 const Home = () => {
 
@@ -41,6 +42,7 @@ const Home = () => {
         <div className={stylesHome.home}>
             
             <div className={stylesHome.left_section}>
+              <ImageProfileHome/>
               <InfoComponent title='Posts You May Like' buttonEnabled/>
               <InfoComponent title='Latest Top News'/>
             </div>

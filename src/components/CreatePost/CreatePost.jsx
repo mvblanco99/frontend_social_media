@@ -7,9 +7,8 @@ import { addNewPost } from "../../Slices/postsSlice";
 const CreatePost = () => {
 
     const dispatch = useDispatch();
-    const userId = useSelector(state => state.users.user.id);
     const userState = useSelector(state => state.users)
-    const { img, name, lastname } = userState.user
+    const { img, name, lastname, userId } = userState.user
 
     const [content, setContent] = useState('');
     const onHandlechange = e => setContent(e.target.value)
