@@ -50,7 +50,9 @@ const Profile = () => {
         
       <div className={stylesProfile.container} ref={referenceContainer} onClick={onHandleClick}>
           <ProfileBanner />
-          <MenuSecundary section={section}/>
+          
+          {section != "TimeLine" && <MenuSecundary section={section}/>}
+        
           <div>
             {section == "TimeLine" && <TimeLine/> }
             {section == "Friends" && <Friends/> }

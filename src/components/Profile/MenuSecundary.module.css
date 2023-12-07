@@ -16,6 +16,7 @@
     height: 60px;
     align-items: center;
     width: 90%;
+    
     margin: 0 auto;
 }
 .list_option {
@@ -31,4 +32,17 @@
 .menu_containerAbout button{
     background-color: transparent;
     border: none;
+}
+
+@media screen and (min-width : 540px){
+    .menu_containerAbout{
+        width: 470px;
+    }
+}
+
+@media screen and (min-width: 820px) {
+    .menu_containerAbout{
+        width: 90%;
+    }
+    
 }
