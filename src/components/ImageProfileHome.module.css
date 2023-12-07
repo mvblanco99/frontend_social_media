@@ -36,7 +36,7 @@
         top: calc(40% - 40px);
         left: 32.5%;
         overflow: hidden;
-        z-index: 10000;
+        z-index: 1000;
     }
     .container_profile_img img{
         width: 100%;
@@ -47,13 +47,14 @@
         height: 60%;
         border-radius: 5px;
         background-color: #fff;
+        overflow: hidden;
     }
 
-    .container_description div{
-        padding: 20px;
-        padding-top: 40px;
+    .sub_container_description{
+        padding: 40px 20px 10px 20px;
         display: flex;
         flex-direction: column;
+        height: 75%;  
     }
 
     .container_description h1{
@@ -66,6 +67,40 @@
         font-size: .8em;
         color: #666666;
     }
+
+    .icon_edit_description{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        height: 25%;
+    }
+
+    .icon_edit_description div{ 
+        width: 40px;
+        height: 100%;
+        margin-right: 5px;
+    }
+
+    .icon_edit_image_profile{
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        position: absolute;
+        top: calc(40% - 3px);
+        left: calc(100% - 32.5% - 20px);
+        color: #AFB4B8;
+        z-index: 10000;
+    }
+
+    .icon:hover{
+        cursor: pointer;
+        color: #AFB4B8;
+    }
 }
 
 @media screen and (min-width : 1280px) {
@@ -76,6 +111,22 @@
         top: calc(40% - 40px);
         left: 35%;
         overflow: hidden;
+        z-index: 10000;
+    }
+
+    .icon_edit_image_profile{
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        position: absolute;
+        top: calc(40% - 3px);
+        left: calc(100% - 32.5% - 25px);
+        color: #AFB4B8;
         z-index: 10000;
     }
 }
