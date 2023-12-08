@@ -1,9 +1,18 @@
+
+import ListImage from "../../components/ListImage"
+import stylesPhoto from "./Photos.module.css"
+import useResize from "../../hooks/useResize"
+
 const Photos = () =>{
+
+    const cols = useResize();
+    console.log(cols)
+
     return(
         <>
-            <div>
-                <h3>Photos</h3>        
-            </div>
+            <section className={stylesPhoto.photoSection_container}>
+                 <ListImage cols={cols} /> 
+            </section>
         </>
     )
 }

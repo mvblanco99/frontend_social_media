@@ -1,0 +1,12 @@
+.friendsSection_container{
+    width: 90%;
+    height: auto;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    
+    gap: 20px;
+    background-color: white;
+}

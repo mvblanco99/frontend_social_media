@@ -1,10 +1,15 @@
 /* eslint-disable react/prop-types */
+import ListFriends from "../../components/ListFriends"
+import stylesFriends from "./Friends.module.css"
+
 const Friends = () =>{
     return(
         <>
-            <div>
-                <h3>Friends</h3>        
-            </div>
+            <section className={stylesFriends.friendsSection_container}>
+                <ListFriends/>  
+
+            </section>
+            
         </>
     )
 }
