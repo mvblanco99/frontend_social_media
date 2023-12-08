@@ -21,6 +21,7 @@
     display: none;
 }
 
+
 @media screen and (min-width : 540px){
     .center_section{
         width: 80%;

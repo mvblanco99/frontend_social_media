@@ -18,7 +18,7 @@ const useFetch = () => {
 
         try {
             const res = await fetch(endpoint,body)
-            const data = await res.json()
+            const data = await res.text()
             setData(data)
             setLoading(false)
             setError(false)

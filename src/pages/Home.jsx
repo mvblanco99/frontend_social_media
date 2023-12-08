@@ -6,14 +6,16 @@ import Header from "../components/Header/Header"
 import useVerifySesion from "../hooks/useVerifySesion"
 import SearchResponsive from "../components/Header/SearchResponsive"
 import { useDispatch, useSelector } from "react-redux"
-import { toogleDropDownMenu, toogleSearchResponsive } from "../Slices/panelSlice"
+import { toogleChooseOptionsImage, toogleDropDownMenu, toogleSearchResponsive } from "../Slices/panelSlice"
 import { useRef } from "react"
 import ImageProfileHome from "../components/ImageProfileHome"
+import ChooseOptionsImage from "../components/UploadImages/ChooseOptionsImage"
+import Overlay from '../components/UploadImages/Overlay'
 
 const Home = () => {
 
-  const searchResponsive  = useSelector(state => state.panel.searchResponsive)
-  const dropdownMenu  = useSelector(state => state.panel.dropdownMenu)
+  const statePanel = useSelector(state => state.panel)
+  const {searchResponsive, dropdownMenu, chooseOptionsImage}  = statePanel
   const dispatch = useDispatch();
   const referenceContainer = useRef()
   useVerifySesion();
@@ -28,17 +30,24 @@ const Home = () => {
       if(dropdownMenu){
         dispatch(toogleDropDownMenu())
       }
+
+      if(chooseOptionsImage){
+        dispatch(toogleChooseOptionsImage())
+      }
     }
   }
 
   return (
     <>
         <Header/>
-        {
-          searchResponsive && <SearchResponsive/>
-        }
+        
+        { searchResponsive && <SearchResponsive/> }
+        { chooseOptionsImage && <ChooseOptionsImage/> }
         
       <div className={stylesHome.container} ref={referenceContainer} onClick={onHandleClick}>
+
+        { chooseOptionsImage && <Overlay/> }
+        
         <div className={stylesHome.home}>
             
             <div className={stylesHome.left_section}>

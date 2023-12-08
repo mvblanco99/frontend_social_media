@@ -37,6 +37,8 @@ const RegisterUser = () => {
         });  
     }
 
+    if (error) console.log(error)
+
     useEffect(()=>{ if(data?.success === 1) setIsRegistered(true) },[data])
     useEffect(()=>{ if(is_registered) navigate('/') },[is_registered, navigate])
     

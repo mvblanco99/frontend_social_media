@@ -2,20 +2,22 @@ import * as React from 'react';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 
-export default function ListImage() {
+export default function ListImage({cols}) {
   return (
-    <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164}>
-      {itemData.map((item) => (
-        <ImageListItem key={item.img}>
-          <img
-            srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-            src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-            alt={item.title}
-            loading="lazy"
-            style={{borderRadius: 0}}
-          />
-        </ImageListItem>
-      ))}
+    <ImageList sx={{ width: '100%' , height : '100%', paddingBottom : '15px' }} cols={cols} rowHeight={164}>
+      {
+        itemData.map((item) => (
+          <ImageListItem key={item.img}>
+            <img
+              srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+              src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
+              alt={item.title}
+              loading="lazy"
+              style={{borderRadius: 0}}
+            />
+          </ImageListItem>
+        ))
+      }
     </ImageList>
   );
 }
@@ -60,6 +62,14 @@ const itemData = [
   {
     img: 'https://images.unsplash.com/photo-1567306301408-9b74779a11af',
     title: 'Tomato basil',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1471357674240-e1a485acb3e1',
+    title: 'Sea star',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1589118949245-7d38baf380d6',
+    title: 'Bike',
   },
   {
     img: 'https://images.unsplash.com/photo-1471357674240-e1a485acb3e1',
