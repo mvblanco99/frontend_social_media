@@ -35,8 +35,9 @@
 
 @media screen and (min-width : 540px){
     .aboutSection_container{
-        width: 470px
+        width: 70%;
     }
+    
 }
 @media screen and (min-width : 820px){
     .aboutSection_container{

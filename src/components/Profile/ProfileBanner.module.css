@@ -37,6 +37,12 @@
     height: 50%;
 
     background-color: white;
+    
+}
+
+.whiteSection_content{
+    height: 100%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -89,26 +95,55 @@
         height: 300px;
         
     }
+    .Profile_photo{
+        width: 120px;
+        height: 120px;
+    
+        top: calc(50% - 60px);
+    }
+}
+@media screen and (min-width: 820px) {
+    .profile_banner{
+        height: 400px;
+    }
+    .profile_banner_coverPhoto{
+        height: 60%;
+    }
+    .profile_banner_whiteSection{
+        height: 40%;
+        
+    }
+    .Profile_photo{
+        
+    
+        top: calc(60% - 60px);
+    }
 }
 
-@media screen and (min-width : 820px){
+@media screen and (min-width : 1024px){
+    .whiteSection_content{
+        width: 90%;
+        flex-direction: row;
+    }
     .profile_banner{
-        height: 350px;
+        height: 400px;
         align-items: start;
     }
 
     .profile_banner_coverPhoto{
-        height: 80%;
+        height: 70%;
     }
 
     .profile_banner_whiteSection{
-        height: 20%;
-        flex-direction: row;
+        height: 30%;
+        
     }
 
     .Profile_photo{
+        
         height: 120px;
         width: 120px;
-        top: calc(91% - 50px);
+        top: calc(60% - 60px);
+        
     }
 }

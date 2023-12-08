@@ -34,15 +34,35 @@
     border: none;
 }
 
+.menu_containerAbout p, .menu_container p{
+    font-weight: bold;
+}
+
 @media screen and (min-width : 540px){
     .menu_containerAbout{
-        width: 470px;
+        width: 70%;
+    }
+
+    .menu_container{
+        width: 70%;
+    }
+
+    .list_option {
+        
+        gap: 20px;
     }
 }
 
 @media screen and (min-width: 820px) {
     .menu_containerAbout{
         width: 90%;
+    }
+    .menu_container{
+        width: 90%;
+    }
+    .list_option {
+        
+        gap: 32px;
     }
     
 }
