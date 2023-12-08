@@ -36,7 +36,7 @@ const MenuSecundary = ({section}) =>{
     
     return(
         <>
-        <div className={ section=="About" ?  `${StyleMenuSecundary.menu_containerAbout}` : `${StyleMenuSecundary.menu_container}`}>
+        <div className={ section=="About" ?  `${StyleMenuSecundary.menu_containerAbout}` : `${StyleMenuSecundary.menu_container}`} >
 
             <p>{section}</p>
 

@@ -27,41 +27,47 @@ const ProfileBanner = () =>{
                     <img src="https://live.staticflickr.com/2857/10509570106_5a0699853b_c.jpg" alt="cover Photo" className={stylesProfileBanner.Profile_coverPhoto}/>
                 </div>
 
-                <img src={img} alt="Profile Photo" className={stylesProfileBanner.Profile_photo} />
                 
+                <img src={img} alt="Profile Photo" className={stylesProfileBanner.Profile_photo} />
 
                 <div className={stylesProfileBanner.profile_banner_whiteSection}>
-                    <button className= {stylesProfileBanner.AggFriends_buttons}>
-                        <PersonAddIcon/>
-                        Add
-                    </button>
-                    <ul>
-                        <li >
-                            <Link to='/Profile/TimeLine'>
-                                Timeline
-                            </Link>
-                        </li>
-                        
-                        <li >
-                            <Link to='/Profile/About'>
-                                About
-                            </Link>
-                        </li>
 
-                        <li >
-                            <Link to='/Profile/Photos'>
-                                Photos
-                            </Link>
-                        </li>
+                    <div className={stylesProfileBanner.whiteSection_content}>
+                        <button className= {stylesProfileBanner.AggFriends_buttons}>
+                            <PersonAddIcon/>
+                            Add
+                        </button>
+                        <ul>
+                            <li >
+                                <Link to='/Profile/TimeLine'>
+                                    Timeline
+                                </Link>
+                            </li>
+                            
+                            <li >
+                                <Link to='/Profile/About'>
+                                    About
+                                </Link>
+                            </li>
 
-                        <li >
-                            <Link to='/Profile/Friends'>
-                                Friends
-                            </Link>
-                        </li>
-                        
-                        
-                    </ul>
+                            <li >
+                                <Link to='/Profile/Photos'>
+                                    Photos
+                                </Link>
+                            </li>
+
+                            <li >
+                                <Link to='/Profile/Friends'>
+                                    Friends
+                                </Link>
+                            </li>
+                
+                        </ul>
+
+                    </div>
+                    
+
+                    
                 </div>
 
 

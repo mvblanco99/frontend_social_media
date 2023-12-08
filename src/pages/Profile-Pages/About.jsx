@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import stylesAbout from './About.module.css'
+import Photos from './Photos'
 
 const About = () =>{
     return(
@@ -25,6 +26,7 @@ const About = () =>{
                     </p>
                 </article>
             </section>
+            <Photos/>
         </>
     )
 }

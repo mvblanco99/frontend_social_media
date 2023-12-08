@@ -4,23 +4,17 @@ import ImageListItem from '@mui/material/ImageListItem';
 
 export default function ListImage({cols}) {
 
-  const [imageSelected, setImageSelected] = React.useState('');
-
-  const onSelectedImage = (item) => {setImageSelected(item)}
-
   return (
-    <ImageList sx={{ width: '100%' , height : '100%', }} cols={cols} rowHeight={164}>
+    <ImageList sx={{ width: '90%' , height : '90%', padding : '20px 0' }} cols={cols} rowHeight={164}>
       {
-        itemData.map((item) => (
-          <ImageListItem 
-            key={item.img} 
-            onClick={(e)=>{onSelectedImage(item.img)}}>
+        itemData.map((item,id) => (
+          <ImageListItem key={id}>
             <img
               srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
               src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
               alt={item.title}
               loading="lazy"
-              style={{borderRadius: 0, }}
+              style={{borderRadius: 5}}
             />
           </ImageListItem>
         ))
@@ -73,6 +67,18 @@ const itemData = [
   {
     img: 'https://images.unsplash.com/photo-1471357674240-e1a485acb3e1',
     title: 'Sea star',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1589118949245-7d38baf380d6',
+    title: 'Bike',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1471357674240-e1a485acb3e1',
+    title: 'Sea star',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1589118949245-7d38baf380d6',
+    title: 'Bike',
   },
   
 ];
