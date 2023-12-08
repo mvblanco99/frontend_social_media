@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import EditIcon from '@mui/icons-material/Edit';
 import { Badge, IconButton } from '@mui/material';
-import { toogleChooseOptionsImage } from '../Slices/panelSlice';
+import { toogleChooseOptionsImage } from '../../Slices/panelSlice';
 
 
 const ImageProfileHome = () => {
@@ -15,7 +15,6 @@ const ImageProfileHome = () => {
   const openPanelChooseOptionsImage = () => {
     dispatch(toogleChooseOptionsImage())
   }
-
 
   return (
     <div className={stylesImageProfileHome.container}>
@@ -35,7 +34,7 @@ const ImageProfileHome = () => {
           </Badge>
         </IconButton> 
       </div>
-
+        
       <div className={stylesImageProfileHome.container_description}>
         
         <div className={stylesImageProfileHome.sub_container_description}>
