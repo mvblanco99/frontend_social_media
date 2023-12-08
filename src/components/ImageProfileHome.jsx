@@ -30,11 +30,13 @@ const ImageProfileHome = () => {
       </div>
 
       <div className={stylesImageProfileHome.container_description}>
+        
         <div className={stylesImageProfileHome.sub_container_description}>
           <h1>{name} {lastname}</h1>
-          <p>Hola mi nombre es Manuel Blanco y soy Ingeniero en informatica, 
-          me gusta la programacion, el boxeo y el cafe</p>
+          <p>Hola mi nombre es Manuel Blanco, soy Ingeniero en informatica, 
+          me gusta la programacion, el boxeo y el cafe.</p>
         </div>
+
         <div className={stylesImageProfileHome.icon_edit_description}>
           <div>
             <IconButton >
@@ -44,8 +46,8 @@ const ImageProfileHome = () => {
             </IconButton>
           </div>
         </div>
+        
       </div>
-
     </div>
   )
 }
