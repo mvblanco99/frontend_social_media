@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     dropdownMenu : false,
-    searchResponsive : false
+    searchResponsive : false,
+    chooseOptionsImage : false
 }
 
 const panelSlice = createSlice({
@@ -20,6 +21,12 @@ const panelSlice = createSlice({
         },
         toogleSearchResponsive : (state) => {
             state.searchResponsive = !state.searchResponsive;
+        },
+        closeChooseOptionsImage : (state) => {
+            state.chooseOptionsImage = false
+        },
+        toogleChooseOptionsImage : (state) => {
+            state.chooseOptionsImage = !state.chooseOptionsImage;
         }
     }
 })
@@ -28,6 +35,8 @@ export default panelSlice.reducer
 export const { 
     toogleDropDownMenu, 
     toogleSearchResponsive,
+    toogleChooseOptionsImage,
     closeDropDownMenu,
-    closeSearchResponsive 
+    closeSearchResponsive,
+    closeChooseOptionsImage 
 } = panelSlice.actions

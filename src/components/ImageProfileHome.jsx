@@ -1,14 +1,21 @@
 import stylesImageProfileHome from './ImageProfileHome.module.css'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import EditIcon from '@mui/icons-material/Edit';
 import { Badge, IconButton } from '@mui/material';
+import { toogleChooseOptionsImage } from '../Slices/panelSlice';
 
 
 const ImageProfileHome = () => {
 
   const userState = useSelector(state => state.users)
-    const { img, name, lastname } = userState.user
+  const { img, name, lastname } = userState.user
+  const dispatch = useDispatch()
+
+  const openPanelChooseOptionsImage = () => {
+    dispatch(toogleChooseOptionsImage())
+  }
+
 
   return (
     <div className={stylesImageProfileHome.container}>
@@ -21,7 +28,7 @@ const ImageProfileHome = () => {
         <img src={img} alt={`${name} ${lastname}`} />
       </div>
 
-      <div className={stylesImageProfileHome.icon_edit_image_profile}>
+      <div className={stylesImageProfileHome.icon_edit_image_profile} onClick={openPanelChooseOptionsImage}>
         <IconButton >
           <Badge  color="primary">
             <CameraAltIcon/>
