@@ -56,20 +56,20 @@ const PostPreview = () => {
     return (
     <>
         <div className={stylesPostPreview.container} ref={referenceContainer}>
-            
+            <h3>Elegir foto de perfil</h3>   
             <div className={stylesPostPreview.container_form} ref={referenceContainerForm}>
-                <h3>Elegir foto de perfil</h3>
+                
                 <form>
-                    <label htmlFor="description">descripcion
-                        <textarea
-                            value={text}
-                            onChange={handleInputChange}
-                            onInput={adjustTextareaHeight}
-                            style={{ overflow: 'hidden' }}
-                            name='description'
-                            id='description'
-                        />
-                    </label>
+                    <label htmlFor="description">descripcion</label>
+                    <textarea
+                    value={text}
+                    onChange={handleInputChange}
+                    onInput={adjustTextareaHeight}
+                    
+                    name='description'
+                    id='description'
+                    />
+                    
                     
                 </form>
             </div>

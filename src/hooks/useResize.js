@@ -11,20 +11,20 @@ const useResize = () =>{
             if(windowWidth < 400){
                 console.log('<400')
                 setCols(2)
-            }
-            if(windowWidth > 400){
-                console.log('>400')
+            }else if(windowWidth < 600){
+                console.log('<600')
                 setCols(3)
-            }
-            if(windowWidth > 600){
-                console.log('>600')
+
+            }else if(windowWidth < 820){
+                console.log('<820')
                 setCols(4)
-            }
-            if(windowWidth > 820){
-                console.log('>820')
+
+            }else if(windowWidth < 1024){
+            
+                console.log('<1020')
                 setCols(5)
-            }
-            if(windowWidth > 1024){
+            }else{
+            
                 console.log('>1020')
                 setCols(6)
             }
