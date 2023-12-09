@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
 import stylesPostPreview from './PostPreview.module.css'
 import { useDispatch } from 'react-redux'
-import { closeChooseOptionsImage } from '../../Slices/panelSlice'
+import { closeChooseOptionsImage, toogleChooseOptionsImage } from '../../Slices/panelSlice'
 
 const PostPreview = () => {
     
     const [text, setText] = useState('')
     const [spaceSeparation, setSpaceSeparation] = useState(0)
+    const [spaceSeparationOverlay, setSpaceSeparationOverlay] = useState(0)
     const [textAreaHeigth, setTextAreaHeigth] = useState(0)
 
     const referenceContainer = useRef()
@@ -20,24 +21,36 @@ const PostPreview = () => {
     }
 
     const adjustTextareaHeight = (event) => {
+        //Actualizamos la altura del textarea
         event.target.style.height = 'auto';
         event.target.style.height = event.target.scrollHeight + 'px';
         const newHeigth = referenceContainerForm.current.scrollHeight
-        if(newHeigth != textAreaHeigth) setTextAreaHeigth(newHeigth)
-        
+        if(newHeigth != textAreaHeigth) setTextAreaHeigth(newHeigth)   
     }
 
     useEffect(()=>{
         dispatch(closeChooseOptionsImage())
-        setTextAreaHeigth(referenceContainerForm.current.scrollHeight)    
+        //Guardamos la altura actual del container_form
+        setTextAreaHeigth(referenceContainerForm.current.scrollHeight)
+        //Guardamos espacio que existe entre el container_image_footer y el container_form
         setSpaceSeparation(Number(referenceContainer.current.scrollHeight) - 
         Number( referenceContainerForm.current.scrollHeight) - 360)
-        // document.querySelector('#overlay').style.overflowY = 'scroll'
+        //Guardamos la altura restante del overlay
+        setSpaceSeparationOverlay((Number(document.querySelector('#overlay').scrollHeight) - 
+        Number(referenceContainer.current.scrollHeight)))
+        //activamos el scrollY al componente overlay
+        document.querySelector('#overlay').style.overflowY = 'scroll'
     },[])
 
     useEffect(()=>{
+        //Calculamos la nueva altura del container
         const newHeigth = Number(spaceSeparation) + 360 + Number(textAreaHeigth)
+        //Asignamos la altura
         referenceContainer.current.style.heigth = newHeigth + 'px'
+        //calculamos la nueva altura del componente overlay
+        const newOverlayHeigth = ( newHeigth + spaceSeparationOverlay)
+        //Asignamos nueva altura al componente overlay
+        document.querySelector('#overlay').style.height = newOverlayHeigth + 'px'
     },[textAreaHeigth])
     
     return (
@@ -66,7 +79,7 @@ const PostPreview = () => {
                     <img src="https://laverdadnoticias.com/__export/1577315932071/sites/laverdad/img/2019/12/25/goku.jpg_1902800913.jpg" alt="Yoenestosmomentos" />
                 </div>
                 <div className={stylesPostPreview.footer}>
-                    <button type='button'>Cancel</button>
+                    <button type='button' onClick={()=>{dispatch(toogleChooseOptionsImage())}}>Cancel</button>
                     <button type='submit'>Guardar</button>
                 </div>
             </div>

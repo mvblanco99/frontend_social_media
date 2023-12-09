@@ -2,7 +2,7 @@ import stylesChooseOptionsImage from './ChooseOptionsImage.module.css'
 import { ImageList, ImageListItem } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { closeChooseOptionsImage, tooglePostPreview } from '../../Slices/panelSlice';
+import { closeChooseOptionsImage, closePostPreview, tooglePostPreview } from '../../Slices/panelSlice';
 import useResize from '../../hooks/useResize';
 
 const ChooseOptionsImage = () => {
@@ -11,9 +11,8 @@ const ChooseOptionsImage = () => {
   const onSelectedImage = (item) => {setImageSelected(item)}
   const dispatch = useDispatch()
 
-  
-
   useEffect(()=>{
+    dispatch(closePostPreview())
     return () => {
       setImageSelected({})
     }
