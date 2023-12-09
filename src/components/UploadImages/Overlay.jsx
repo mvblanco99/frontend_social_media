@@ -11,7 +11,7 @@ const Overlay = () => {
   }, []);
 
   return (
-    <div className={stylesOverlay.overlay}></div>
+    <div className={stylesOverlay.overlay} id="overlay"></div>
   )
 }
 

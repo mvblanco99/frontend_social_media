@@ -59,6 +59,7 @@ const Home = () => {
       <div className={stylesHome.container} ref={referenceContainer} onClick={onHandleClick}>
 
         { chooseOptionsImage && <Overlay/> }
+        { postPreview && <Overlay/> }
         
         <div className={stylesHome.home}>
             
