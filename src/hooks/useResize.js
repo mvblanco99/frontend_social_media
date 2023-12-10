@@ -2,6 +2,18 @@ import { useEffect,  useState } from "react"
 
 const useResize = () =>{
     const [cols,setCols] = useState(0);
+
+    const funcion = (param) => {
+        
+        const parametros = {
+            'param > 500 && param < 800' : 1,
+            500 : 2,
+            720 : 4,
+        }
+
+        return parametros[param]
+    }
+    
     
     useEffect(()=>{
 
@@ -10,7 +22,7 @@ const useResize = () =>{
             
             if(windowWidth < 400){
                 console.log('<400')
-                setCols(2)
+                setCols(funcion(400))
             }else if(windowWidth < 600){
                 console.log('<600')
                 setCols(3)

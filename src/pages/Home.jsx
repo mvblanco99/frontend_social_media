@@ -6,25 +6,29 @@ import Header from "../components/Header/Header"
 import useVerifySesion from "../hooks/useVerifySesion"
 import SearchResponsive from "../components/Header/SearchResponsive"
 import { useDispatch, useSelector } from "react-redux"
-import { toogleChooseOptionsImage, toogleDropDownMenu, tooglePostPreview, toogleSearchResponsive } from "../Slices/panelSlice"
+import { toogleDropDownMenu, toogleSearchResponsive } from "../Slices/panelSlice"
 import { useRef } from "react"
 import ImageProfileHome from "../components/ImageProfileHome/ImageProfileHome"
 import ChooseOptionsImage from "../components/UploadImages/ChooseOptionsImage"
-import Overlay from '../components/UploadImages/Overlay'
 import PostPreview from "../components/UploadImages/PostPreview"
+import useHandleScroll from "../hooks/useHandleScroll"
 
 const Home = () => {
 
   const statePanel = useSelector(state => state.panel)
+  
   const {
     searchResponsive, 
     dropdownMenu, 
     chooseOptionsImage, 
     postPreview
   } = statePanel
+
   const dispatch = useDispatch();
   const referenceContainer = useRef()
-  useVerifySesion();
+  
+  useVerifySesion()
+  useHandleScroll()
 
   const onHandleClick = e => {
     if(referenceContainer.current.contains(e.target)){
@@ -36,30 +40,18 @@ const Home = () => {
       if(dropdownMenu){
         dispatch(toogleDropDownMenu())
       }
-
-      if(chooseOptionsImage){
-        dispatch(toogleChooseOptionsImage())
-      }
-
-      if(postPreview){
-        dispatch(tooglePostPreview())
-      }
-
     }
   }
 
   return (
     <>
-        <Header/>
-        
-        { searchResponsive && <SearchResponsive/> }
-        { chooseOptionsImage && <ChooseOptionsImage/> }
-        { postPreview && <PostPreview/> }
+      <Header/>
+
+      { searchResponsive && <SearchResponsive/> }
+      { chooseOptionsImage && <ChooseOptionsImage/> }
         
       <div className={stylesHome.container} ref={referenceContainer} onClick={onHandleClick}>
-
-        { (chooseOptionsImage || postPreview ) && <Overlay/> }
-        
+      { postPreview && <PostPreview/> }
         <div className={stylesHome.home}>
             
             <div className={stylesHome.left_section}>

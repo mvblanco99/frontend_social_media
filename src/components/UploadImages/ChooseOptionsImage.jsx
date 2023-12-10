@@ -2,61 +2,67 @@ import stylesChooseOptionsImage from './ChooseOptionsImage.module.css'
 import { ImageList, ImageListItem } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { closeChooseOptionsImage, closePostPreview, tooglePostPreview } from '../../Slices/panelSlice';
-import useResize from '../../hooks/useResize';
+import { closeChooseOptionsImage, tooglePostPreview } from '../../Slices/panelSlice';
+import Overlay from './Overlay';
+import useHandleScroll from '../../hooks/useHandleScroll';
 
 const ChooseOptionsImage = () => {
 
   const [imageSelected, setImageSelected] = useState({});
-  const onSelectedImage = (item) => {setImageSelected(item)}
   const dispatch = useDispatch()
 
+  useHandleScroll()
+  const onSelectedImage = (item) => {setImageSelected(item)}
+
   useEffect(()=>{
-    dispatch(closePostPreview())
     return () => {
       setImageSelected({})
     }
   },[])
 
   useEffect(()=>{
-    if(Object.entries(imageSelected).length > 0) dispatch(tooglePostPreview())
+    if(Object.entries(imageSelected).length > 0){
+      dispatch(tooglePostPreview())
+      dispatch(closeChooseOptionsImage())
+    } 
   },[imageSelected])
 
   return (
     <>
+      <Overlay>
         <div className={stylesChooseOptionsImage.container}>
+          <div className={stylesChooseOptionsImage.container_form}>
+            <h3>Subir foto</h3>
+            <form >
+                <input type="file" />
+            </form>
+          </div>
 
-            <div className={stylesChooseOptionsImage.container_form}>
-              <h3>Subir foto</h3>
-              <form >
-                  <input type="file" />
-              </form>
+          <div className={stylesChooseOptionsImage.container_galeria}>
+              <h3>Elegir fotos de la galeria</h3>
+
+              <div className={stylesChooseOptionsImage.galeria}>
+                <ImageList sx={{ width: '100%' , height : '100%', }} cols={3} rowHeight={164}>
+                  {
+                    itemData.map((item) => (
+                      <ImageListItem 
+                        key={item.img} 
+                        onClick={(e)=>{onSelectedImage(item)}}>
+                        <img
+                          srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                          src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
+                          alt={item.title}
+                          loading="lazy"
+                          style={{borderRadius: 0, }}
+                        />
+                      </ImageListItem>
+                    ))
+                  }
+                </ImageList>
+              </div>
             </div>
-
-            <div className={stylesChooseOptionsImage.container_galeria}>
-                <h3>Elegir fotos de la galeria</h3>
-
-                <div className={stylesChooseOptionsImage.galeria}>
-                  <ImageList sx={{ width: '100%' , height : '100%', }} cols={3} rowHeight={164}>
-                    {
-                      itemData.map((item) => (
-                        <ImageListItem 
-                          key={item.img} 
-                          onClick={(e)=>{onSelectedImage(item)}}>
-                          <img
-                            srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-                            src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-                            alt={item.title}
-                            loading="lazy"
-                            style={{borderRadius: 0, }}
-                          />
-                        </ImageListItem>
-                      ))
-                    }
-                  </ImageList>
-                </div>
-            </div>
-        </div>
+          </div>
+        </Overlay>
     </>
   )
 }

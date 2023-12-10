@@ -8,9 +8,8 @@ import Friends from "./pages/Profile-Pages/Friends";
 import Photos from "./pages/Profile-Pages/Photos";
 import About from "./pages/Profile-Pages/About";
 import TimeLine from "./pages/Profile-Pages/TimeLine"
-
 function App() {
-
+  
   return (
     <>
       <div className={styles_app.container_app} >

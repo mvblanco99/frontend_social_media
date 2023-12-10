@@ -1,9 +1,35 @@
 .overlay {
-    position: absolute;
+    position: fixed;
     z-index: 49999;
     left: 0;
     top: 0;
     width: 100%;
     min-height: 100%;
+    max-height: 100%;
     background-color: rgba(0, 0, 0, .8);
+    overflow: hidden;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.containerChildren{
+    margin: 0 auto;
+}
+
+@media screen and (min-width : 520px) {
+    .containerChildren{
+        width: 80%;
+    }
+}
+
+@media screen and (min-width : 768px) {
+    .containerChildren{
+        width: 60%;
+    }
+}
+
+@media screen and (min-width : 1024px) {
+    .containerChildren{
+        width: 37%;
+    }
 }
