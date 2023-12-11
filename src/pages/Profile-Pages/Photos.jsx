@@ -10,9 +10,11 @@ const Photos = () =>{
 
     return(
         <>
-            <section className={stylesPhoto.photoSection_container}>
-                 <ListImage cols={cols} /> 
-            </section>
+            {cols !== 0 && (
+                <section className={stylesPhoto.photoSection_container}>
+                     <ListImage cols={cols} /> 
+                </section>
+            )}
         </>
     )
 }

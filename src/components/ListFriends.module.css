@@ -26,12 +26,7 @@
     
 }
 
-@media screen and (min-width: 620px) {
-    .gridFriends_container{
-        grid-template-columns: repeat(3, 1fr);
-    }
-    
-}
+
 
 @media screen and (min-width: 820px) {
 
