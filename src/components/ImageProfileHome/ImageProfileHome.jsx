@@ -1,5 +1,5 @@
-import stylesImageProfileHome from './ImageProfileHome.module.css'
-import { useDispatch, useSelector } from 'react-redux'
+import stylesImageProfileHome from './ImageProfileHome.module.css';
+import { useDispatch, useSelector } from 'react-redux';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import EditIcon from '@mui/icons-material/Edit';
 import { Badge, IconButton } from '@mui/material';
@@ -8,13 +8,13 @@ import { toogleChooseOptionsImage } from '../../Slices/panelSlice';
 
 const ImageProfileHome = () => {
 
-  const userState = useSelector(state => state.users)
-  const { img, name, lastname } = userState.user
-  const dispatch = useDispatch()
+  const userState = useSelector(state => state.users);
+  const { img, name, lastname } = userState.user;
+  const dispatch = useDispatch();
 
   const openPanelChooseOptionsImage = () => {
-    dispatch(toogleChooseOptionsImage())
-  }
+    dispatch(toogleChooseOptionsImage());
+  };
 
   return (
     <div className={stylesImageProfileHome.container}>
@@ -40,7 +40,7 @@ const ImageProfileHome = () => {
         <div className={stylesImageProfileHome.sub_container_description}>
           <h1>{name} {lastname}</h1>
           <p>Hola mi nombre es Manuel Blanco, soy Ingeniero en informatica, 
-          me gusta la programacion, el boxeo y el cafe.</p>
+            me gusta la programacion, el boxeo y el cafe.</p>
         </div>
 
         <div className={stylesImageProfileHome.icon_edit_description}>
@@ -55,7 +55,7 @@ const ImageProfileHome = () => {
         
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ImageProfileHome
+export default ImageProfileHome;

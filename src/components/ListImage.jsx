@@ -1,4 +1,3 @@
-import * as React from 'react';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 
@@ -14,8 +13,7 @@ export default function ListImage({cols}) {
               src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
               alt={item.title}
               loading="lazy"
-              style={{borderRadius: 5}}
-            />
+              style={{borderRadius: 5}}/>
           </ImageListItem>
         ))
       }

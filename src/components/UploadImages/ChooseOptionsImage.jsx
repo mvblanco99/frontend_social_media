@@ -1,31 +1,25 @@
-import stylesChooseOptionsImage from './ChooseOptionsImage.module.css'
+import stylesChooseOptionsImage from './ChooseOptionsImage.module.css';
 import { ImageList, ImageListItem } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { closeChooseOptionsImage, tooglePostPreview } from '../../Slices/panelSlice';
 import Overlay from './Overlay';
 import useHandleScroll from '../../hooks/useHandleScroll';
+import { ImageContext } from '../../context/ImageContext';
 
 const ChooseOptionsImage = () => {
 
-  const [imageSelected, setImageSelected] = useState({});
-  const dispatch = useDispatch()
+  const { imageSelected, onSelectedImage , onHandleChange } = useContext(ImageContext);
+  const dispatch = useDispatch();
 
-  useHandleScroll()
-  const onSelectedImage = (item) => {setImageSelected(item)}
-
+  useHandleScroll();
+  
   useEffect(()=>{
-    return () => {
-      setImageSelected({})
-    }
-  },[])
-
-  useEffect(()=>{
-    if(Object.entries(imageSelected).length > 0){
-      dispatch(tooglePostPreview())
-      dispatch(closeChooseOptionsImage())
+    if(imageSelected.data != undefined){
+      dispatch(tooglePostPreview());
+      dispatch(closeChooseOptionsImage());
     } 
-  },[imageSelected])
+  },[imageSelected]);
 
   return (
     <>
@@ -34,38 +28,37 @@ const ChooseOptionsImage = () => {
           <div className={stylesChooseOptionsImage.container_form}>
             <h3>Subir foto</h3>
             <form >
-                <input type="file" />
+              <input type="file" name='photo' id='photo' onChange={onHandleChange}/>
             </form>
           </div>
 
           <div className={stylesChooseOptionsImage.container_galeria}>
-              <h3>Elegir fotos de la galeria</h3>
+            <h3>Elegir fotos de la galeria</h3>
 
-              <div className={stylesChooseOptionsImage.galeria}>
-                <ImageList sx={{ width: '100%' , height : '100%', }} cols={3} rowHeight={164}>
-                  {
-                    itemData.map((item) => (
-                      <ImageListItem 
-                        key={item.img} 
-                        onClick={(e)=>{onSelectedImage(item)}}>
-                        <img
-                          srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-                          src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-                          alt={item.title}
-                          loading="lazy"
-                          style={{borderRadius: 0, }}
-                        />
-                      </ImageListItem>
-                    ))
-                  }
-                </ImageList>
-              </div>
+            <div className={stylesChooseOptionsImage.galeria}>
+              <ImageList sx={{ width: '100%' , height : '100%', }} cols={3} rowHeight={164}>
+                {
+                  itemData.map((item) => (
+                    <ImageListItem 
+                      key={item.img} 
+                      onClick={(e)=>{onSelectedImage(item);}}>
+                      <img
+                        srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                        src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
+                        alt={item.title}
+                        loading="lazy"
+                        style={{borderRadius: 0, }}/>
+                    </ImageListItem>
+                  ))
+                }
+              </ImageList>
             </div>
           </div>
-        </Overlay>
+        </div>
+      </Overlay>
     </>
-  )
-}
+  );
+};
 
 const itemData = [
   {
@@ -115,4 +108,4 @@ const itemData = [
   
 ];
 
-export default ChooseOptionsImage
+export default ChooseOptionsImage;

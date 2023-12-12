@@ -1,19 +1,19 @@
 import { useRef } from 'react';
-import stylesOverlay from './Overlay.module.css'
+import stylesOverlay from './Overlay.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { toogleChooseOptionsImage, tooglePostPreview } from '../../Slices/panelSlice';
 
 const Overlay = ({children}) => {
 
-  const statePanel = useSelector(state => state.panel)
+  const statePanel = useSelector(state => state.panel);
 
   const {
     chooseOptionsImage, 
     postPreview
-  } = statePanel
+  } = statePanel;
 
-  const referenceOverlay = useRef()
-  const referenceContainerChildren = useRef()
+  const referenceOverlay = useRef();
+  const referenceContainerChildren = useRef();
 
   const dispatch = useDispatch();
   
@@ -23,15 +23,15 @@ const Overlay = ({children}) => {
       if(!referenceContainerChildren.current.contains(e.target)){
         
         if(chooseOptionsImage){
-          dispatch(toogleChooseOptionsImage())
+          dispatch(toogleChooseOptionsImage());
         }
   
         if(postPreview){
-          dispatch(tooglePostPreview())
+          dispatch(tooglePostPreview());
         }
       }
     }
-  }
+  };
 
   return (
     <div className={stylesOverlay.overlay} id="overlay" ref={referenceOverlay} onClick={handleClick}>
@@ -39,7 +39,7 @@ const Overlay = ({children}) => {
         {children}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Overlay
+export default Overlay;

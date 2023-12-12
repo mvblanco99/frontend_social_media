@@ -1,30 +1,30 @@
-import { useEffect } from "react"
-import { useSelector } from "react-redux"
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 const useHandleScroll = () => {
   
-    const statePanel = useSelector(state => state.panel)
+  const statePanel = useSelector(state => state.panel);
 
-    const { 
-        chooseOptionsImage, 
-        postPreview
-    } = statePanel
+  const { 
+    chooseOptionsImage, 
+    postPreview
+  } = statePanel;
 
-    useEffect(() => {
+  useEffect(() => {
 
-        if(postPreview){
-            document.querySelector('#overlay').style.overflowY = 'scroll'
-        }
+    if(postPreview){
+      document.querySelector('#overlay').style.overflowY = 'scroll';
+    }
 
-        if(chooseOptionsImage || postPreview){
-            document.body.style.overflow = 'hidden'
-        }
+    if(chooseOptionsImage || postPreview){
+      document.body.style.overflow = 'hidden';
+    }
 
-        if(!chooseOptionsImage && !postPreview){
-            document.body.style.overflow = 'scroll'
-        }
+    if(!chooseOptionsImage && !postPreview){
+      document.body.style.overflow = 'scroll';
+    }
         
-    },[chooseOptionsImage,postPreview])
-}
+  },[chooseOptionsImage,postPreview]);
+};
 
-export default useHandleScroll
+export default useHandleScroll;

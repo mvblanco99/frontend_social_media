@@ -1,6 +1,6 @@
-import stylesHeader from './Header.module.css'
+import stylesHeader from './Header.module.css';
 import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import HomeIcon from '@mui/icons-material/Home';
@@ -10,27 +10,27 @@ import { Badge, IconButton } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 
-import DropDownMenu from './DropDownMenu'
+import DropDownMenu from './DropDownMenu';
 import { closeDropDownMenu, toogleSearchResponsive } from '../../Slices/panelSlice';
 
 const Header = () => {
 
-  const [currentUrl, setCurrentUrl] = useState('/home')
-  const userState = useSelector(state => state.users)
-  const  searchResponsive  = useSelector(state => state.panel.searchResponsive)
-  const url = useLocation()
-  const dispatch = useDispatch()
+  const [currentUrl, setCurrentUrl] = useState('/home');
+  const userState = useSelector(state => state.users);
+  const  searchResponsive  = useSelector(state => state.panel.searchResponsive);
+  const url = useLocation();
+  const dispatch = useDispatch();
 
   const onHandleClick = () => {
-    dispatch(toogleSearchResponsive())
-    dispatch(closeDropDownMenu())
-  }
+    dispatch(toogleSearchResponsive());
+    dispatch(closeDropDownMenu());
+  };
   
   useEffect(() => {
-    setCurrentUrl(url.pathname)
-  },[url])
+    setCurrentUrl(url.pathname);
+  },[url]);
 
-  const { img, name, lastname } = userState.user
+  const { img, name, lastname } = userState.user;
   
   return (
     <>
@@ -45,10 +45,10 @@ const Header = () => {
           <Link to='/home'> 
             <span className={stylesHeader.icon_responsive}>
               <IconButton >
-              <Badge  color="secondary">
-                <HomeIcon/>
-              </Badge>
-            </IconButton>
+                <Badge  color="secondary">
+                  <HomeIcon/>
+                </Badge>
+              </IconButton>
             </span>
             <span className={`${stylesHeader.text_responsive} ${currentUrl === '/home' && stylesHeader.isActive}`}>
               Home
@@ -57,28 +57,28 @@ const Header = () => {
 
           <Link to='/Profile/TimeLine'>
             <span className={stylesHeader.icon_responsive}>
-            <IconButton >
-              <Badge  color="secondary">
-                <AccountBoxIcon/>
-              </Badge>
-            </IconButton>
+              <IconButton >
+                <Badge  color="secondary">
+                  <AccountBoxIcon/>
+                </Badge>
+              </IconButton>
             </span>
             <span className={`${stylesHeader.text_responsive} ${currentUrl === '/profile' && stylesHeader.isActive}`}>
-            Profile
+              Profile
             </span>
           </Link>
 
           <Link to='#'>
             <span className={stylesHeader.icon_responsive}>
-            <IconButton aria-label={100}>
-              <Badge badgeContent={100} color="secondary">
-                <NotificationsIcon/>
-              </Badge>
-            </IconButton>
+              <IconButton aria-label={100}>
+                <Badge badgeContent={100} color="secondary">
+                  <NotificationsIcon/>
+                </Badge>
+              </IconButton>
               
             </span>
             <span className={stylesHeader.text_responsive}>
-            Notifications
+              Notifications
             </span>
           </Link>
 
@@ -88,13 +88,12 @@ const Header = () => {
                 id='Search_Input'
                 type="text" 
                 placeholder="Search"
-                className={stylesHeader.input_text}
-              />
+                className={stylesHeader.input_text}/>
 
               <button 
                 type='button' 
                 className={`${stylesHeader.text_responsive} ${stylesHeader.search_button}`} >
-                    <SearchIcon/>
+                <SearchIcon/>
               </button>
 
               <span className={stylesHeader.icon_responsive} onClick={onHandleClick} id='icon_search'>
@@ -111,13 +110,7 @@ const Header = () => {
         <DropDownMenu />
       </div>
     </>
-  )
-  
+  );  
+};
 
-  
-}
-
-
-
-
-export default Header
+export default Header;

@@ -1,9 +1,9 @@
-import stylesProfile from './Profile.module.css'
-import useVerifySesion from '../hooks/useVerifySesion'
-import Friends from "./Profile-Pages/Friends";
-import Photos from "./Profile-Pages/Photos";
-import About from "./Profile-Pages/About";
-import TimeLine from "./Profile-Pages/TimeLine"
+import stylesProfile from './Profile.module.css';
+import useVerifySesion from '../hooks/useVerifySesion';
+import Friends from './Profile-Pages/Friends';
+import Photos from './Profile-Pages/Photos';
+import About from './Profile-Pages/About';
+import TimeLine from './Profile-Pages/TimeLine';
 
 
 import { useParams } from 'react-router-dom';
@@ -19,11 +19,11 @@ import SearchResponsive from '../components/Header/SearchResponsive';
 
 const Profile = () => {
 
-  const searchResponsive  = useSelector(state => state.panel.searchResponsive)
-  const dropdownMenu  = useSelector(state => state.panel.dropdownMenu)
+  const searchResponsive  = useSelector(state => state.panel.searchResponsive);
+  const dropdownMenu  = useSelector(state => state.panel.dropdownMenu);
   const dispatch = useDispatch();
-  const referenceContainer = useRef()
-  useVerifySesion()
+  const referenceContainer = useRef();
+  useVerifySesion();
   let {section} = useParams();
 
   useVerifySesion();
@@ -32,14 +32,14 @@ const Profile = () => {
     if(referenceContainer.current.contains(e.target)){
       
       if(searchResponsive){
-        dispatch(toogleSearchResponsive())
+        dispatch(toogleSearchResponsive());
       }
 
       if(dropdownMenu){
-        dispatch(toogleDropDownMenu())
+        dispatch(toogleDropDownMenu());
       }
     }
-  }
+  };
 
   return (
     <>
@@ -49,20 +49,20 @@ const Profile = () => {
       }
         
       <div className={stylesProfile.container} ref={referenceContainer} onClick={onHandleClick}>
-          <ProfileBanner />
+        <ProfileBanner />
           
-          {section != "TimeLine" && <MenuSecundary section={section}/>}
+        {section != 'TimeLine' && <MenuSecundary section={section}/>}
         
-          <div>
-            {section == "TimeLine" && <TimeLine/> }
-            {section == "Friends" && <Friends/> }
-            {section == "Photos" && <Photos/> }
-            {section == "About" && <About/> }
-          </div>        
+        <div>
+          {section == 'TimeLine' && <TimeLine/> }
+          {section == 'Friends' && <Friends/> }
+          {section == 'Photos' && <Photos/> }
+          {section == 'About' && <About/> }
+        </div>        
       </div>
       
     </>
   );
-}
+};
 
-export default Profile
+export default Profile;
