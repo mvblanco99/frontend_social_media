@@ -5,12 +5,13 @@ import { closePostPreview, toogleChooseOptionsImage } from '../../Slices/panelSl
 import Overlay from './Overlay';
 import useHandleScroll from '../../hooks/useHandleScroll';
 import { ImageContext } from '../../context/ImageContext';
+import img_fondo_blanco from '../../assets/img/fondo blanco.avif';
 
 const PostPreview = () => {
   const [text, setText] = useState('');
   const [spaceSeparation, setSpaceSeparation] = useState(0);
   const [textAreaHeigth, setTextAreaHeigth] = useState(0);
-  const [image, setImage] = useState('');
+  const [image, setImage] = useState(img_fondo_blanco);
 
   const referenceContainer = useRef();
   const referenceContainerImage = useRef();
@@ -35,7 +36,14 @@ const PostPreview = () => {
       reader.readAsDataURL(file);
     
     }else{
-      setImage(imageSelected.data.img);
+
+      const img = new Image();
+      img.src = imageSelected.data.img;
+
+      img.onload = () => {
+        setImage(img.src);
+      };
+
     }
   };
 
